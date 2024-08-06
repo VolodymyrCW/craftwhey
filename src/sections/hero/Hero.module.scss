@@ -1,0 +1,9 @@
+@import "../../app/variables";
+
+.section {
+  @include pageTopPadding;
+}
+
+.container {
+  outline: 1px dashed white;
+}

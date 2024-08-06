@@ -2,6 +2,8 @@
   "name": "craftwhey",
   "version": "0.1.0",
   "private": true,
+  "figma": "https://www.figma.com/design/ogqLr9hkXK5p4Ko9THmmxA/Craft-Whey?node-id=1-3&t=VAa9gEhQUqsXJ6sl-0",
+  "github": "https://github.com/VolodymyrCW/craftwhey",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +11,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "14.2.5",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.5"
+    "sass": "^1.77.8"
   },
   "devDependencies": {
     "eslint": "^8",

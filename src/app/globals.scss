@@ -1,0 +1,74 @@
+@import "./_variables";
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+
+  -webkit-transition-duration: 250ms;
+  -moz-transition-duration: 250ms;
+  -o-transition-duration: 250ms;
+  -ms-transition-duration: 250ms;
+  transition-duration: 250ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--finterTight);
+  font-style: normal;
+  font-weight: 300;
+  color: $gray0;
+
+  background-color: $gray900;
+
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+header,
+footer {
+  width: inherit;
+  max-width: inherit;
+}
+
+section {
+  width: 100%;
+  padding: $sidePaddingMob;
+
+  @media screen and (min-width: $tablet) {
+    padding: 32px $sidePaddingMob;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 40px $sidePaddingDesc 40px;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  // background-color: aqua;
+  // height: 300px;
+}

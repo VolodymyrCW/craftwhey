@@ -1,7 +1,14 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Inter_Tight } from "next/font/google";
+import "./globals.scss";
+
+const interTight = Inter_Tight({
+  subsets: ["cyrillic"],
+  weight: ["300", "400", "500"],
+  variable: "--finterTight",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +17,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="uk" className={interTight.variable}>
+      <body style={{ overflowX: "hidden" }}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
+
+// src/components/Footer/Footer.jsx

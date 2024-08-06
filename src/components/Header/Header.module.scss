@@ -1,0 +1,11 @@
+@import "../../app/variables";
+
+.header {
+  position: fixed;
+  height: 56px; // for now
+  padding: 16px $sidePaddingMob;
+}
+
+.container {
+  outline: 1px dashed white;
+}

@@ -1,0 +1,57 @@
+$mobile: "360px";
+$tablet: "768px";
+$laptop: "1024px";
+$desktop: "1440px";
+
+// @media screen and (min-width: $mobile)
+// @media screen and (min-width: $tablet)
+// @media screen and (min-width: $laptop)
+// @media screen and (min-width: $desktop)
+
+$gray900: rgba(20, 21, 23, 1);
+$gray800: rgba(52, 52, 55, 1);
+$gray700: rgba(82, 82, 85, 1);
+$gray600: rgba(101, 102, 104, 1);
+$gray500: rgba(140, 141, 144, 1);
+$gray400: rgba(173, 174, 177, 1);
+$gray300: rgba(209, 211, 213, 1);
+$gray200: rgba(227, 228, 231, 1);
+$gray100: rgba(238, 239, 242, 1);
+$gray50: rgba(246, 248, 251, 1);
+$gray0: rgba(255, 255, 255, 1);
+
+$primary900: rgba(255, 106, 0, 1);
+$primary800: rgba(255, 139, 0, 1);
+$primary700: rgba(255, 156, 0, 1);
+$primary600: rgba(255, 175, 0, 1);
+
+$secondary50: rgba(238, 244, 246, 1);
+
+$alertsError: rgba(215, 6, 6, 1);
+$alertsWarning: rgba(255, 229, 0, 1);
+$alertsSuccess: rgba(0, 158, 0, 1);
+$alertsSystem: rgba(0, 80, 235, 1);
+
+$sidePaddingMob: 20px;
+$sidePaddingDesc: 60px;
+
+@mixin pageTopPadding {
+  padding-top: 72px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 76px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding-top: 76px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 120px;
+  }
+}
+
+// example Hero.module.scss:
+//
+// .section {
+//   @include pageTopPadding;
+// }
+//
