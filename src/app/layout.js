@@ -19,9 +19,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="uk" className={interTight.variable}>
       <body style={{ overflowX: "hidden" }}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <SiteProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </SiteProvider>
       </body>
     </html>
   );
