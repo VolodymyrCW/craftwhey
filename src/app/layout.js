@@ -3,6 +3,7 @@ import Footer from "@/components/Footer/Footer";
 
 import { Inter_Tight } from "next/font/google";
 import "./globals.scss";
+import { SiteProvider } from "@/context/siteContext";
 
 const interTight = Inter_Tight({
   subsets: ["cyrillic"],
