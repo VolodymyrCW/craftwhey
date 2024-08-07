@@ -49,6 +49,21 @@ $sidePaddingDesc: 60px;
   }
 }
 
+@mixin sectionTitle {
+  font-size: 28px;
+  font-weight: 400;
+
+  & span {
+    color: $primary900;
+  }
+  @media screen and (min-width: $tablet) {
+    font-size: 48px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 62px;
+  }
+}
+
 // example Hero.module.scss:
 //
 // .section {
