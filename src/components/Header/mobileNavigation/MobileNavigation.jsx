@@ -7,9 +7,6 @@ import React, { useContext } from "react";
 import styles from "./MobileNavigation.module.scss";
 
 const MobileNavigation = () => {
-  //   const qwe = (e) => {
-  //     console.log(e.target);
-  //   };
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
 
   return (
