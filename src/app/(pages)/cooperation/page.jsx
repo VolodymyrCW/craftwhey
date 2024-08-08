@@ -1,10 +1,10 @@
-import CooperationSection from "@/sections/cooperation/CooperationSection";
+import Cooperation from "@/sections/cooperationSections/Cooperation";
 import React from "react";
 
 const CooperationPage = () => {
   return (
     <>
-      <CooperationSection />
+      <Cooperation />
     </>
   );
 };

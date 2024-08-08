@@ -1,12 +1,12 @@
-import ContactsSection from "@/sections/contacts/ContactsSection";
 import React from "react";
+import Contacts from "../../../sections/contactsSections/Contacts";
 
-const Contacts = () => {
+const ContactsPage = () => {
   return (
     <>
-      <ContactsSection />
+      <Contacts />
     </>
   );
 };
 
-export default Contacts;
+export default ContactsPage;

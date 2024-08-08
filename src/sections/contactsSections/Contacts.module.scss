@@ -4,6 +4,6 @@
   @include pageTopPadding;
 }
 
-.container {
-  outline: 1px dashed white;
+.title {
+  @include sectionTitle;
 }

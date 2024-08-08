@@ -1,8 +1,8 @@
-import About from "@/sections/about/About";
-import Hero from "@/sections/hero/Hero";
-import NewProducts from "@/sections/newProducts/NewProducts";
-import SpecialOffers from "@/sections/specialOffers/SpecialOffers";
-import TopProducts from "@/sections/topProducts/TopProducts";
+import About from "@/sections/homeSections/about/About";
+import Hero from "@/sections/homeSections/hero/Hero";
+import NewProducts from "@/sections/homeSections/newProducts/NewProducts";
+import SpecialOffers from "@/sections/homeSections/specialOffers/SpecialOffers";
+import TopProducts from "@/sections/homeSections/topProducts/TopProducts";
 
 export default function Home() {
   return (

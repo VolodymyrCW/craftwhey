@@ -1,7 +1,13 @@
+import ProductSlag from "@/sections/productsSections/productSlug/ProductSlag";
+
 import React from "react";
 
 const SlugPage = () => {
-  return <div>SlugPage</div>;
+  return (
+    <>
+      <ProductSlag />
+    </>
+  );
 };
 
 export default SlugPage;

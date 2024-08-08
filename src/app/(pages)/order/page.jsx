@@ -1,12 +1,12 @@
-import OrderSection from "@/sections/ordering/OrderSection";
+import Order from "@/sections/orderSections/Order";
 import React from "react";
 
-const Order = () => {
+const OrderPage = () => {
   return (
     <>
-      <OrderSection />
+      <Order />
     </>
   );
 };
 
-export default Order;
+export default OrderPage;

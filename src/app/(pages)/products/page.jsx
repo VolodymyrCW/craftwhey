@@ -1,12 +1,12 @@
-import ProductsSection from "@/sections/products/ProductsSection";
+import Products from "@/sections/productsSections/allProducts/Products";
 import React from "react";
 
-const Products = () => {
+const ProductsPage = () => {
   return (
     <>
-      <ProductsSection />
+      <Products />
     </>
   );
 };
 
-export default Products;
+export default ProductsPage;

@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./CooperationSection.module.scss";
+import styles from "./Cooperation.module.scss";
 
-const CooperationSection = () => {
+const Cooperation = () => {
   return (
-    <section>
+    <section className={styles.section}>
       <div className={`container`}>
         <h2 className={styles.title}>Раді співпраці з Вами</h2>
       </div>
@@ -11,4 +11,4 @@ const CooperationSection = () => {
   );
 };
 
-export default CooperationSection;
+export default Cooperation;

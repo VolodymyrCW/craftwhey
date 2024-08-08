@@ -1,0 +1,9 @@
+@import "../../../app/variables";
+
+.section {
+  @include pageTopPadding;
+}
+
+.title {
+  @include sectionTitle;
+}
