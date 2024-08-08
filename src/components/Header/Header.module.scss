@@ -4,8 +4,13 @@
   position: fixed;
   height: 56px; // for now
   padding: 16px $sidePaddingMob;
+  background-color: $gray900;
+  outline: 1px dashed white;
 }
 
 .container {
   outline: 1px dashed white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

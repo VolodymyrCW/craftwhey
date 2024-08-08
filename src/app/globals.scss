@@ -19,6 +19,11 @@
   transition-duration: 250ms;
 }
 
+*::before,
+*::after {
+  display: inline-block;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -69,4 +74,14 @@ section {
   max-width: 1320px;
   margin-left: auto;
   margin-right: auto;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+ul,
+ol {
+  list-style: none;
 }

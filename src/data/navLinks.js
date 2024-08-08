@@ -1,26 +1,24 @@
 export const navLinks = [
   {
     title: "Головна",
-    href: "/",
+    href: "/#home",
   },
   {
-    title: "Головна",
-    href: "/",
+    title: "Продукція",
+    href: "/products",
+    subMenu: [
+      {
+        title: "Вся продукція",
+        href: "/products",
+      },
+    ],
   },
   {
-    title: "Головна",
-    href: "/",
+    title: "Акції",
+    href: "/#specialOffers",
   },
   {
-    title: "Головна",
-    href: "/",
-  },
-  {
-    title: "Головна",
-    href: "/",
-  },
-  {
-    title: "Головна",
-    href: "/",
+    title: "Новинки",
+    href: "/#newProducts",
   },
 ];

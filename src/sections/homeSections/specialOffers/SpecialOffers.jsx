@@ -3,7 +3,7 @@ import styles from "./SpecialOffers.module.scss";
 
 const SpecialOffers = () => {
   return (
-    <section>
+    <section id="specialOffers">
       <div className={`container`}>
         <h2 className={styles.title}>Акційні пропозиції</h2>
       </div>
