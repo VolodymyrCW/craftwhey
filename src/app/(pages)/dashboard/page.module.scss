@@ -1,0 +1,46 @@
+@import "../../variables";
+
+.layoutContainer {
+    display: none;
+
+    @media screen and (min-width:$tablet) {
+        display: block;
+        width: 100%;
+        max-width: 1440px;
+        padding: 56px 32px 20px;
+    }
+
+    @media screen and (min-width:$laptop) {
+        padding: 56px 32px 40px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        padding: 56px 80px 40px;
+    }
+}
+
+.wrapper {
+    height: calc(100vh - 410px);
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width:$laptop) {
+        height: calc(100vh - 425px);
+    }
+
+    @media screen and (min-width:$desktop) {
+        height: calc(100vh - 535px);
+    }
+}
+
+.successWelcome {
+    text-align: center;
+    color: #5680eb;
+}
+
+.errorWelcome {
+    text-align: center;
+    color: #f41313;
+}

@@ -1,5 +1,3 @@
-import Loader from "@/components/Loader/Loader";
-
 export const getData = async (folderName) => {
   const res = await fetch(`${process.env.URL}/api/${folderName}`, {
     cache: "no-store",
