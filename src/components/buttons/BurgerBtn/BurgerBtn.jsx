@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 
 const BurgerBtn = () => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
-  console.log("burgerMenu", burgerMenu);
+  // console.log("burgerMenu", burgerMenu);
 
   return (
     <button

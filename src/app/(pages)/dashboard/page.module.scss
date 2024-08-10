@@ -1,0 +1,34 @@
+@import "../../variables";
+
+.layoutContainer {
+    background-color: $gray50;
+    color: $gray900;
+    flex: 1;
+    display: none;
+
+    @media screen and (min-width:$laptop) {
+        display: block;
+        width: 100%;
+        max-width: 1440px;
+        padding-top: 56px;
+    }
+
+}
+
+.wrapper {
+    height: calc(100vh - 157px);
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.successWelcome {
+    text-align: center;
+    color: #5680eb;
+}
+
+.errorWelcome {
+    text-align: center;
+    color: #f41313;
+}
