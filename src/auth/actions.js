@@ -7,7 +7,7 @@ import { signIn, signOut } from "./auth";
 
 // previousState - инф-ция об ошибках для useFormState
 export const register = async (previousState, formData) => {
-    const { name, email, password } = Object.fromEntries(formData);
+    const { name, email, password, repeatPassword } = Object.fromEntries(formData);
     try {
         await connectToDB();
 
@@ -16,7 +16,7 @@ export const register = async (previousState, formData) => {
             return { error: "Такий користувач вже існує" }
         }
 
-        if (password === "") {
+        if (password === "" || password !== repeatPassword) {
             return { error: "Щось трапилось..." }
         }
 

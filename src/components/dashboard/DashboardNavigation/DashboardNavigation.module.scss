@@ -2,19 +2,18 @@
 
 .navigationContainer {
 
-    @media screen and (min-width: $tablet) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 60px;
-        // font-family: var(--montserrat);
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 1.2;
-    }
-
     @media screen and (min-width: $laptop) {
-        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 4px 20px;
+        background-color: $gray800;
+        border: solid 1px $blackColor;
+        color: $gray0;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 1.6;
     }
 }
 
@@ -27,9 +26,9 @@
         content: "";
         position: absolute;
         width: 0%;
-        height: 2px;
-        // background-color: $accentColor;
-        bottom: -5px;
+        height: 1px;
+        background-color: $accentYellow;
+        bottom: -2px;
         left: 0;
     }
 

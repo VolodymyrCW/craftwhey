@@ -1,38 +1,26 @@
 @import "../../variables";
 
 .layoutContainer {
+    background-color: $gray50;
+    color: $gray900;
+    flex: 1;
     display: none;
 
-    @media screen and (min-width:$tablet) {
+    @media screen and (min-width:$laptop) {
         display: block;
         width: 100%;
         max-width: 1440px;
-        padding: 56px 32px 20px;
+        padding-top: 56px;
     }
 
-    @media screen and (min-width:$laptop) {
-        padding: 56px 32px 40px;
-    }
-
-    @media screen and (min-width:$desktop) {
-        padding: 56px 80px 40px;
-    }
 }
 
 .wrapper {
-    height: calc(100vh - 410px);
+    height: calc(100vh - 157px);
     min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media screen and (min-width:$laptop) {
-        height: calc(100vh - 425px);
-    }
-
-    @media screen and (min-width:$desktop) {
-        height: calc(100vh - 535px);
-    }
 }
 
 .successWelcome {

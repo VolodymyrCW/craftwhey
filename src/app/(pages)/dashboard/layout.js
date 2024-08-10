@@ -10,7 +10,7 @@ export default async function DashboardLayout({ children }) {
 
     return <div className={styles.layoutContainer}>
         <div className="container">
-            <DashboardNavigation handleLogout={handleLogout} session={session} />
+            {session && <DashboardNavigation handleLogout={handleLogout} session={session} />}
             {children}
         </div>
     </div>
