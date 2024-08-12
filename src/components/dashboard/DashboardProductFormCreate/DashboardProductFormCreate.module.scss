@@ -1,0 +1,151 @@
+@import "../../../app/variables";
+
+.dataForm {
+    flex: 1;
+    height: fit-content;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    border-radius: 8px;
+    background-color: $gray100;
+}
+
+.inputGroup {
+    position: relative;
+    width: 100%;
+}
+
+.formInput {
+    width: 100%;
+    padding: 12px 67px 12px 14px;
+    border-radius: 8px;
+    border: solid 1px $gray900;
+    background-color: inherit;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.6;
+
+    &:focus+.formLabel,
+    &:not(:placeholder-shown)+.formLabel {
+        transform: translateY(-195%) scale(0.9);
+        transition-duration: 250ms;
+    }
+}
+
+.inputGroup textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.formLabel {
+    position: absolute;
+    top: 20px;
+    left: 32px;
+    pointer-events: none;
+    transition-duration: 250ms;
+}
+
+.error {
+    position: absolute;
+    top: -18px;
+    right: 10px;
+    color: red;
+    font-size: 14px;
+}
+
+.radioInputGroup {
+    width: 100%;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: solid 1px $gray900;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.radioItemWrapper {
+    display: flex;
+    column-gap: 12px;
+}
+
+.radioLabel {
+    cursor: pointer;
+}
+
+.radio {
+    width: 24px;
+    cursor: pointer;
+}
+
+.checkboxInputGroup {
+    width: 100%;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: solid 1px $gray900;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.checkboxItemWrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+}
+
+.checkboxLabel {
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.uploadBtn {
+    margin-top: 4px;
+    width: 100%;
+    padding: 12px 48px;
+    border-radius: 8px;
+    border: solid 1px $gray900;
+    background-color: $gray500;
+    color: $gray0;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.6;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $gray500;
+        background-color: $gray200;
+    }
+}
+
+.submitBtn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px 48px;
+    border-radius: 8px;
+    border: transparent;
+    background-color: $primary900;
+    color: $gray900 ;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.6;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $primary900;
+        background-color: $gray900 ;
+    }
+}

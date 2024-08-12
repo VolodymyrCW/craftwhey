@@ -1,6 +1,6 @@
 const DashboardUsersSection = () => {
     return (
-        <div>DashboardUsersSection</div>
+        <section>DashboardUsersSection</section>
     )
 }
 

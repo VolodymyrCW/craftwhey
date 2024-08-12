@@ -12,28 +12,34 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        nameRus: {
+            type: String,
+            required: true,
+        },
         category: {
             type: String,
-            enum: ['Печиво', 'Гранола', 'Протеїн', 'Вафлі'],
-            required: true,
+            // enum: ['Печиво', 'Гранола', 'Протеїн', 'Вафлі'],
+            // required: true,
             default: 'Печиво',
         },
-        // вага для розрахунку енергетичної цінності
+        categoryRus: {
+            type: String,
+            // enum: ['Печенье', 'Гранола', 'Протеин', 'Вафли'],
+            // required: true,
+            default: 'Печенье',
+        },
         worthWeight: {
             type: String,
             required: true,
         },
-        // білки
         protein: {
             type: String,
             required: true,
         },
-        // жири
         fats: {
             type: String,
             required: true,
         },
-        // вуглеводи
         carbohydrates: {
             type: String,
             required: true,
@@ -46,13 +52,17 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        compositionRus: {
+            type: String,
+            required: true,
+        },
         price: {
             type: String,
             required: true,
         },
-        feature: {
-            type: String,
-            enum: ['VEGAN', 'GLUTEN FREE'],
+        peculiarities: {
+            type: Array,
+            // enum: ['vegan', 'gluten-free'],
         },
         image: {
             type: String,
