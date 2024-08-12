@@ -6,7 +6,7 @@ const LogoutBtn = ({ handleLogout }) => {
         <form action={handleLogout}>
             <button className={styles.logoutBtn}>
                 <svg className={styles.exitIcon}>
-                    <use href="/sprite-copy.svg#icon-exit" />
+                    <use href="/sprite.svg#icon-exit" />
                 </svg>
             </button>
         </form>
