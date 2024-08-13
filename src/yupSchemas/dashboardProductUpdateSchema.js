@@ -1,11 +1,11 @@
 import * as yup from "yup";
 
 
-export const dashboardProductCreateSchema = yup.object({
-    slug: yup.string()
+export const dashboardProductUpdateSchema = yup.object({
+    newSlug: yup.string()
         .required("Slug - обов’язкове поле")
         .test({
-            name: "slug",
+            name: "newSlug",
             test(value, ctx) {
                 // this.options.context - from DashboardProductFormCreate context: slugsArr
                 const isExist = this.options.context.includes(value);
@@ -17,51 +17,51 @@ export const dashboardProductCreateSchema = yup.object({
                 return true;
             },
         }),
-    name: yup
+    newName: yup
         .string()
         .required("Назва - обов’язкове поле"),
-    nameRus: yup
+    newNameRus: yup
         .string()
         .required("Назва російською - обов’язкове поле"),
-    category: yup
+    newCategory: yup
         .string(),
-    categoryRus: yup
+    newCategoryRus: yup
         .string(),
-    worthWeight: yup
+    newWorthWeight: yup
         .number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа"),
-    protein: yup
+    newProtein: yup
         .number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа"),
-    fats: yup
+    newFats: yup
         .number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа"),
-    carbohydrates: yup
+    newCarbohydrates: yup
         .number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа"),
-    kcal: yup
+    newKcal: yup
         .number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа"),
-    composition: yup
+    newComposition: yup
         .string()
         .required("Склад - обов’язкове поле"),
-    compositionRus: yup
+    newCompositionRus: yup
         .string()
         .required("Склад російською - обов’язкове поле"),
-    price: yup
+    newPrice: yup
         .number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа"),
-    peculiarities: yup
+    newPeculiarities: yup
         .array(),
-    image: yup
+    newImage: yup
         .string()
         .required("Фото - обов’язкове поле"),
-    isAbsent: yup
+    newIsAbsent: yup
         .boolean()
 });

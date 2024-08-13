@@ -4,6 +4,9 @@ import Footer from "@/components/Footer/Footer";
 import { Inter_Tight } from "next/font/google";
 import "./globals.scss";
 import { SiteProvider } from "@/context/siteContext";
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 
 const interTight = Inter_Tight({
   subsets: ["cyrillic"],
@@ -25,6 +28,19 @@ export default function RootLayout({ children }) {
           <main>{children}</main>
           <Footer />
         </SiteProvider>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          // hideProgressBar={false}
+          // newestOnTop={false}
+          // closeOnClick
+          // rtl={false}
+          // pauseOnFocusLoss
+          // draggable
+          pauseOnHover
+          theme="colored"
+        // transition:Bounce
+        />
       </body>
     </html>
   );
