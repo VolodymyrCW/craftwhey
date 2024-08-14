@@ -8,6 +8,7 @@ import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudi
 import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from './DashboardProductFormCreate.module.scss'
 import { createCategoryRus } from "@/utils/createCategoryRus";
+import { toast } from "react-toastify";
 
 
 const DashboardProductFormCreate = ({ mutate, isOwner, slugsArr }) => {
@@ -56,10 +57,11 @@ const DashboardProductFormCreate = ({ mutate, isOwner, slugsArr }) => {
             });
             // автоматично оновлює сторінку при зміні кількості карток
             mutate();
-            console.log("Information added to DB");
 
+            toast.success(`Картка продукту "${forSendData.name}" створена!`);
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -75,7 +77,6 @@ const DashboardProductFormCreate = ({ mutate, isOwner, slugsArr }) => {
             className={styles.dataForm}
             noValidate
         >
-
             <div className={styles.inputGroup}>
                 <input
                     type='text'
@@ -340,15 +341,16 @@ const DashboardProductFormCreate = ({ mutate, isOwner, slugsArr }) => {
                     name='image'
                     className={styles.uploadBtn}
                     onSuccess={(result, widget) => {
-
                         if (getValues("image") !== "") {
                             const publicId = getValues("image");
                             handleDeleteImgFromCloudinary(publicId);
+                            toast.success("Попереднє фото видалено з Cloudinary!");
                         }
                         setValue("image", result.info.public_id, {
                             shouldValidate: true,
                         });
                         widget.close();
+                        toast.success("Нове фото додано до Cloudinary!")
                     }}
                     options={{ multiple: false }}
                     uploadPreset='unsigned_preset'

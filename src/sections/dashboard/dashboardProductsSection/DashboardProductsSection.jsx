@@ -14,8 +14,6 @@ const DashboardProductsSection = ({ isOwner }) => {
 
     const sortedByUpdateData = data?.sort((a, b) => { return a.updatedAt - b.updatedAt });
 
-    // console.log('sortedByUpdateData', sortedByUpdateData)
-
     return (
         <section className={styles.dashboardSection}>
             {isLoading
