@@ -5,7 +5,6 @@ import { Inter_Tight } from "next/font/google";
 import "./globals.scss";
 import { SiteProvider } from "@/context/siteContext";
 import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
 
 
 const interTight = Inter_Tight({
