@@ -42,19 +42,31 @@ export const register = async (previousState, formData) => {
 // используется в loginForm. здесь внутри вызывается signIn из auth.js (передавая credentials). там выполняется алгоритм в части CredentialsProvider
 export const login = async (previousState, formData) => {
     const { email, password } = Object.fromEntries(formData);
-    try {
-        await signIn("credentials", { email, password })
-    } catch (error) {
-        // проверка на ошибку, чтобы вывести спец сообщение "Invalid username or password" с помощью useFormState в поле ошибки в loginForm
-        if (error.message.includes("CredentialsSignin")) {
-            return { error: "Invalid username or password" };
-        }
+    // console.log('formData', formData);
 
-        // // test-variant instead of (error.message.includes("CredentialsSignin")
-        // if (error.type === "CallbackRouteError") {
-        //     return { error: "Невірний логін або пароль" };
+    try {
+        // console.log('actions login in try before');
+        await signIn("credentials", { email, password });
+        // console.log('actions login in try after');
+
+    } catch (error) {
+        // console.log('actions login in catch before');
+        // console.log('ERROR actions login in catch', error);
+        console.log('error', error)
+
+        // // проверка на ошибку, чтобы вывести спец сообщение "Invalid username or password" с помощью useFormState в поле ошибки в loginForm
+        // if (error.message.includes("CredentialsSignin")) {
+        //     // console.log('actions login in catch error.message.includes("CredentialsSignin")');
+        //     return { error: "Invalid username or password" };
         // }
+
+        // test-variant instead of (error.message.includes("CredentialsSignin")
+        if (error.type === "CredentialsSignin") {
+            // console.log('actions login in catch error.type === "CallbackRouteError"');
+            return { error: "Невірний логін або пароль" };
+        }
         // return { error: "Something went wrong" } был заменён на написанное ниже, чтобы исключить ошибку NEXT_REDIRECT при правильно введённых логине и пароле
+        // console.log('actions login in catch end');
         throw error;
     }
 }

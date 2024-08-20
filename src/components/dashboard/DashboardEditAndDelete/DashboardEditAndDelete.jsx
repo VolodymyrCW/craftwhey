@@ -32,7 +32,7 @@ const DashboardEditAndDelete = ({ data, pathname, mutate, isOwner }) => {
                         arrForDeleting.map(item => handleDeleteImgFromCloudinary(item));
                         handleDeleteCardFromDB(url, mutate);
 
-                        toast.success(`Картка продукту "${data?.name}" була видалена!`);
+                        toast.success(`Картка продукту "${data?.name}" видалена!`);
                     }
                 }
                 }

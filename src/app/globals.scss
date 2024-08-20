@@ -1,4 +1,5 @@
 @import "./_variables";
+@import "react-toastify/ReactToastify.css";
 
 *,
 *::before,
@@ -75,6 +76,7 @@ section {
   margin-left: auto;
   margin-right: auto;
 }
+
 a {
   text-decoration: none;
   color: inherit;
