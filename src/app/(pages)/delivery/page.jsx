@@ -1,5 +1,5 @@
-import DeliveryInfo from "@/sections/deliverySections/DeliveryInfo";
-import React from "react";
+import DeliveryInfo from "@/sections/deliverySection/DeliveryInfo";
+
 
 const DeliveryInfoPage = () => {
   return (
@@ -8,5 +8,6 @@ const DeliveryInfoPage = () => {
     </>
   );
 };
+
 
 export default DeliveryInfoPage;

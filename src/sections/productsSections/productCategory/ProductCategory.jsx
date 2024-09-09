@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ProductCategory.module.scss";
 
 const ProductCategory = () => {

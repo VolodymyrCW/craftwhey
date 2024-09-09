@@ -1,7 +1,7 @@
 "use client";
 
 import { SiteContext } from "@/context/siteContext";
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 const BurgerBtn = () => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);

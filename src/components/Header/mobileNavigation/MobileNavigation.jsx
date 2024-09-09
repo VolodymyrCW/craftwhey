@@ -2,7 +2,7 @@
 
 import HeaderNavlinks from "@/components/HeaderNavlinks/HeaderNavlinks";
 import { SiteContext } from "@/context/siteContext";
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import styles from "./MobileNavigation.module.scss";
 

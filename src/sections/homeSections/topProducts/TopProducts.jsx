@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./TopProducts.module.scss";
 
 const TopProducts = () => {

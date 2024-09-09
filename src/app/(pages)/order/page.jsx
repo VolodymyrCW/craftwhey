@@ -1,5 +1,5 @@
-import Order from "@/sections/orderSections/Order";
-import React from "react";
+import Order from "@/sections/orderSection/Order";
+
 
 const OrderPage = () => {
   return (
@@ -8,5 +8,6 @@ const OrderPage = () => {
     </>
   );
 };
+
 
 export default OrderPage;

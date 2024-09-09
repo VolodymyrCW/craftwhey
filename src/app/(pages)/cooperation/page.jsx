@@ -1,5 +1,5 @@
-import Cooperation from "@/sections/cooperationSections/Cooperation";
-import React from "react";
+import Cooperation from "@/sections/cooperationSection/Cooperation";
+
 
 const CooperationPage = () => {
   return (
@@ -8,5 +8,6 @@ const CooperationPage = () => {
     </>
   );
 };
+
 
 export default CooperationPage;
