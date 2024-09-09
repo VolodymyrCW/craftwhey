@@ -1,4 +1,3 @@
-import React from "react";
 import BurgerBtn from "../buttons/BurgerBtn/BurgerBtn";
 
 import styles from "./Header.module.scss";

@@ -2,7 +2,6 @@
 
 import { navLinks } from "@/data/navLinks";
 import Link from "next/link";
-import React from "react";
 
 const HeaderNavlinks = ({ className }) => {
   return (

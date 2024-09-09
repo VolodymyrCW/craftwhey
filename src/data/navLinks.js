@@ -15,10 +15,10 @@ export const navLinks = [
   },
   {
     title: "Акції",
-    href: "/#specialOffers",
+    href: "/#special-offers",
   },
   {
     title: "Новинки",
-    href: "/#newProducts",
+    href: "/#new-products",
   },
 ];

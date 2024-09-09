@@ -1,13 +1,13 @@
-import ProductSlag from "@/sections/productsSections/productSlug/ProductSlag";
+import ProductSlug from "@/sections/productsSections/productSlug/ProductSlug";
 
-import React from "react";
 
 const SlugPage = () => {
   return (
     <>
-      <ProductSlag />
+      <ProductSlug />
     </>
   );
 };
+
 
 export default SlugPage;

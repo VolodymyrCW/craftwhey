@@ -1,5 +1,5 @@
-import React from "react";
-import Contacts from "../../../sections/contactsSections/Contacts";
+import Contacts from "../../../sections/contactsSection/Contacts";
+
 
 const ContactsPage = () => {
   return (
@@ -8,5 +8,6 @@ const ContactsPage = () => {
     </>
   );
 };
+
 
 export default ContactsPage;
