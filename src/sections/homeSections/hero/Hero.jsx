@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import { productsCategory } from '@/data/productsCategory';
 import { GetDataForHomeByCollection } from '@/fetch/clientFetch';
 import Link from 'next/link';
+
 import styles from './Hero.module.scss';
 
 const Hero = () => {
   const { data, isLoading } = GetDataForHomeByCollection('products');
+
+  // console.log(data);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
