@@ -1,6 +1,6 @@
-"use client";
-import { usePathname } from "next/navigation";
-import useSWR from "swr";
+'use client';
+import { usePathname } from 'next/navigation';
+import useSWR from 'swr';
 
 // for data fetching on HomePage
 export const GetDataForHomeByCollection = (collection) => {
@@ -13,7 +13,7 @@ export const GetDataWithPathname = () => {
   const pathname = usePathname();
   let changedPathname = pathname;
 
-  if (pathname.startsWith("/dashboard/")) {
+  if (pathname.startsWith('/dashboard/')) {
     changedPathname = pathname.slice(10);
   }
 
