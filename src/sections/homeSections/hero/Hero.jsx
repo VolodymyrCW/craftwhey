@@ -1,27 +1,27 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { productsCategory } from '@/data/productsCategory';
 import { GetDataForHomeByCollection } from '@/fetch/clientFetch';
-import Link from 'next/link';
 
 import styles from './Hero.module.scss';
 
 const Hero = () => {
   const { data, isLoading } = GetDataForHomeByCollection('products');
 
-  // console.log(data);
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const arr = data?.map((item) => {
-    const categoryTitle = productsCategory.map(
-      ({ title, cat }) => item.category === cat && title
+    const categoryImage = productsCategory.find(
+      ({ cat, img }) => item.category === cat && img
     );
     return {
       category: item.category,
       image: item.image,
-      titleCat: categoryTitle,
+      imageCat: categoryImage.img,
     };
   });
 
@@ -33,43 +33,34 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % unique.length);
-    }, 3000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [unique]);
 
-  if (isLoading || !unique) return <div>Завантаження...</div>;
+  if (isLoading || !unique)
+    return <div className={styles.heroLoader}>Завантаження...</div>;
 
   const currentItem = unique[currentIndex];
 
   return (
     <section className={styles.section} id="home">
-      <div className={`container ${styles.heroContainer}`}>
-        <Link
-          href={`/products/${currentItem.category}`}
-          key={currentItem.category}
-          className={styles.heroLink}
-        >
-          <div className={styles.heroContent}>
-            <h1>{currentItem.titleCat}</h1>
-          </div>
-        </Link>
-      </div>
+      <Link
+        href={`/products/${currentItem.category}`}
+        key={currentItem.category}
+        className={styles.heroLink}
+        style={{
+          backgroundImage: `url(${currentItem.imageCat})`,
+        }}
+      >
+        <div className={`container ${styles.heroContainer}`}>
+          <figure className={`${styles.heroContent}`}>
+            <Image src="/Logo big.png" alt="logo" fill="true" />
+          </figure>
+        </div>
+        <h1 className={styles.titleHidden}>Protein Cookies</h1>
+      </Link>
     </section>
-    // <section className={styles.section} id="home">
-    //   <div className={`container ${styles.heroContainer}`}>
-    //     {unique?.map((item) => (
-    //       <Link
-    //         href={`/products/${item.category}`}
-    //         key={item.category}
-    //         className={styles.heroLink}
-    //         style={{ width: '100vw', height: '100vh' }}
-    //       >
-    //         {item.titleCat}
-    //       </Link>
-    //     ))}
-    //   </div>
-    // </section>
   );
 };
 

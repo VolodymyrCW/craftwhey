@@ -1,28 +1,87 @@
 @import '../../../app/variables';
 
 .section {
-  @include pageTopPadding;
   position: relative;
-  width: 100vw;
   height: 100vh;
-}
-
-.heroContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  @include pageTopPadding;
 }
 
 .heroLink {
+  position: absolute;
+  top: 72px;
+  left: 0;
   width: 100%;
-  height: 100%;
-  outline: 1px dashed white;
+  height: calc(100vh - 72px);
+  padding-top: 16px;
+  padding-left: 20px;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
 
   background-size: cover;
   background-position: center;
+  transition: background-image 0.8s ease-in-out;
 
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  animation: fadeUp 0.8s ease-in-out forwards;
+
+  @media screen and (min-width: $tablet) {
+    top: 76px;
+    height: calc(100vh - 76px);
+    padding-top: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    top: 120px;
+    height: calc(100vh - 120px);
+    padding-top: 40px;
+    padding-left: 16px;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.heroContainer {
+  width: 100%;
+}
+
+.heroContent {
+  text-transform: uppercase;
   @include sectionTitle;
+  position: relative;
+  width: 200px;
+  height: 100px;
+
+  & img {
+    object-fit: contain;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 387px;
+    height: 192px;
+  }
+}
+
+.titleHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  margin: -1px;
 }

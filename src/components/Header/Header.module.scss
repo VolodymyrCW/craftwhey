@@ -1,11 +1,18 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 .header {
   position: fixed;
-  height: 56px; // for now
+  height: 72px; // for now
   padding: 16px $sidePaddingMob;
   background-color: $gray900;
-  outline: 1px dashed white;
+  // outline: 1px dashed white;
+  @media screen and (min-width: $tablet) {
+    height: 76px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 120px;
+  }
 }
 
 .container {
