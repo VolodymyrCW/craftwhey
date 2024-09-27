@@ -15,13 +15,13 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const arr = data?.map((item) => {
-    const categoryImage = productsCategory.find(
-      ({ cat, img }) => item.category === cat && img
+    const categoryData = productsCategory.find(
+      ({ cat }) => item.categoryRus === cat
     );
+
     return {
-      category: item.category,
-      image: item.image,
-      imageCat: categoryImage.img,
+      category: item.categoryRus,
+      imageCat: categoryData?.img,
     };
   });
 
@@ -32,7 +32,7 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % unique.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % unique?.length);
     }, 7000);
 
     return () => clearInterval(interval);
