@@ -1,13 +1,12 @@
 export const createCategoryRus = (category) => {
-
-    switch (category) {
-        case "Гранола":
-            return "Гранола";
-        case "Протеїн":
-            return "Протеин";
-        case "Вафлі":
-            return "Вафли";
-        default:
-            return "Печенье";
-    }
-} 
+  switch (category) {
+    case 'Гранола':
+      return 'granola';
+    case 'Протеїн':
+      return 'protein';
+    case 'Вафлі':
+      return 'waffles';
+    default:
+      return 'cookie';
+  }
+};
