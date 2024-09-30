@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 12px;
+  padding-bottom: 16px;
   animation: fadeUp 0.8s ease-in-out forwards;
 
   @media screen and (min-width: $tablet) {
@@ -31,6 +32,7 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    padding-bottom: 24px;
   }
 }
 
@@ -48,6 +50,7 @@
   -ms-flex-pack: space-between;
   justify-content: space-between;
   padding-bottom: 4px;
+  cursor: pointer;
   @media screen and (min-width: $tablet) {
     height: 408px;
     padding-bottom: 16px;
@@ -108,5 +111,53 @@
   margin-left: 4px;
   @media screen and (min-width: $desktop) {
     margin-left: 8px;
+  }
+}
+
+.breadCrumbs {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $secondary50;
+  margin-bottom: 32px;
+
+  & li {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $tablet) {
+    column-gap: 4px;
+    font-size: 14px;
+  }
+}
+
+.textLinkAnimation {
+  text-decoration: none;
+  position: relative;
+  outline: none;
+  &:hover.textLinkAnimation::after,
+  &:focus.textLinkAnimation::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    -webkit-animation: textLink 0.8s ease forwards;
+    animation: textLink 0.8s ease forwards;
+    background-color: #ffffff;
+  }
+}
+
+@keyframes textLink {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
   }
 }

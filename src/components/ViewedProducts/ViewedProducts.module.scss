@@ -1,0 +1,86 @@
+@import '../../app/variables';
+
+.viewedProductsContainer {
+  background-color: $secondary50;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100vw;
+  @media screen and (min-width: $tablet) {
+    padding-top: 20px;
+    padding-bottom: 18px;
+  }
+}
+
+.viewedProductsTitleSmall {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.4;
+  color: $blackColor;
+  margin-bottom: 8px;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.viewedProductsTitle {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.4;
+    color: $blackColor;
+    margin-bottom: 14px;
+  }
+}
+
+.viewedProductsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 24px;
+}
+
+.viewedProductsItem {
+  row-gap: 8px;
+  background-color: $gray0;
+  & h4 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+    color: $blackColor;
+  }
+  p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+    color: $blackColor;
+  }
+  @media screen and (min-width: $desktop) {
+    & h4 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.viewedProductsImg {
+  position: relative;
+  width: 132px;
+  height: 132px;
+
+  & img {
+    object-fit: cover;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 232px;
+    height: 200px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 200px;
+  }
+}
