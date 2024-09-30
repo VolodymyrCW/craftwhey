@@ -1,6 +1,13 @@
-import styles from "./ProductSlug.module.scss";
+'use client';
+
+import { GetDataWithPathname } from '@/fetch/clientFetch';
+import styles from './ProductSlug.module.scss';
 
 const ProductSlug = () => {
+  // const { data, isLoading } = GetDataWithPathname();
+
+  // console.log(data);
+
   return (
     <section className={styles.section}>
       <div className={`container`}>

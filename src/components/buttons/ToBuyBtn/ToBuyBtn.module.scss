@@ -1,0 +1,81 @@
+@import '../../../app/variables';
+
+.btnContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  z-index: 10;
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.btnContainerIsAbsent {
+  & .btn {
+    background-color: $gray400;
+    color: $gray600;
+  }
+  & .btnBlock {
+    background-color: $gray600;
+    color: gray0;
+  }
+  & .btnBlock {
+    & svg {
+      stroke: gray0;
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: $primary900;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $gray900;
+
+  @media screen and (min-width: $tablet) {
+    text-align: start;
+    padding: 10px 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+  }
+}
+
+.btnBlock {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background-color: $secondary50;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $gray900;
+    column-gap: 12px;
+    padding: 10px 24px;
+    & svg {
+      width: 24px;
+      height: 24px;
+      stroke: $blackColor;
+      fill: none;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    right: 30px;
+  }
+}
