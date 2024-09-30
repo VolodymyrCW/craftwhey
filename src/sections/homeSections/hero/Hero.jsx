@@ -44,7 +44,7 @@ const Hero = () => {
   const currentItem = unique[currentIndex];
 
   return (
-    <section className={styles.section} id="home">
+    <section className={`section ${styles.section}`} id="home">
       <Link
         href={`/products/${currentItem.category}`}
         key={currentItem.category}

@@ -3,26 +3,13 @@ import Link from 'next/link';
 import ToBuyBtn from '../buttons/ToBuyBtn/ToBuyBtn';
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ item, result }) => {
-  // let viewedProducts = JSON.parse(localStorage.getItem('viewedProducts')) || [];
-
-  // // Перевіряємо, чи продукт вже не є в списку
-  // const isProductViewed = viewedProducts.find((p) => p.slug === item.slug);
-
-  // if (!isProductViewed) {
-  //   // Додаємо новий продукт до списку
-  //   viewedProducts = [item, ...viewedProducts].slice(0, 4); // зберігаємо тільки останні 4 продуктів
-  //   localStorage.setItem('viewedProducts', JSON.stringify(viewedProducts));
-  // }
-
-  // console.log(viewedProducts);
+const ProductCard = ({ item }) => {
+  // const ProductCard = ({ item, result }) => {
 
   return (
     <li>
-      <Link
-        className={styles.productsItem}
-        href={`/products/${result}/${item.slug}`}
-      >
+      <Link className={styles.productsItem} href={`/products/${item.slug}`}>
+        {/* <Link className={styles.productsItem} href={`/products/${result}/${item.slug}`}> */}
         <figure
           className={
             !item.isAbsent
