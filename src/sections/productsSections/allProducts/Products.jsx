@@ -34,7 +34,7 @@ const Products = () => {
       );
       setFilteredData(filtered);
     }
-  }, [categoryFromURL, data]);
+  }, [categoryFromURL, data, setFilteredData]);
 
   const arr = data?.map((item) => {
     const categoryData = productsCategory.find(

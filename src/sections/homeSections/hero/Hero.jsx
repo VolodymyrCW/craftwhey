@@ -14,6 +14,12 @@ const Hero = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const router = useRouter();
+
+  const handleCategoryClick = (category) => {
+    router.push(`/products?category=${category}`);
+  };
+
   const arr = data?.map((item) => {
     const categoryData = productsCategory.find(
       ({ cat }) => item.categoryRus === cat
@@ -42,12 +48,6 @@ const Hero = () => {
     return <div className={styles.heroLoader}>Завантаження...</div>;
 
   const currentItem = unique[currentIndex];
-
-  const router = useRouter();
-
-  const handleCategoryClick = (category) => {
-    router.push(`/products?category=${category}`);
-  };
 
   return (
     <section className={`section ${styles.section}`} id="home">
