@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { productsCategory } from '@/data/productsCategory';
 import { GetDataForHomeByCollection } from '@/fetch/clientFetch';
 
 import styles from './Hero.module.scss';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
   const { data, isLoading } = GetDataForHomeByCollection('products');
@@ -43,14 +43,22 @@ const Hero = () => {
 
   const currentItem = unique[currentIndex];
 
+  const router = useRouter();
+
+  const handleCategoryClick = (category) => {
+    router.push(`/products?category=${category}`);
+  };
+
   return (
     <section className={`section ${styles.section}`} id="home">
-      <Link
-        href={`/products/${currentItem.category}`}
+      <div
         key={currentItem.category}
         className={styles.heroLink}
         style={{
           backgroundImage: `url(${currentItem.imageCat})`,
+        }}
+        onClick={() => {
+          handleCategoryClick(currentItem.category);
         }}
       >
         <div className={`container ${styles.heroContainer}`}>
@@ -59,7 +67,7 @@ const Hero = () => {
           </figure>
         </div>
         <h1 className={styles.titleHidden}>Protein Cookies</h1>
-      </Link>
+      </div>
     </section>
   );
 };

@@ -1,21 +1,40 @@
 'use client';
 
 import ViewedProducts from '@/components/ViewedProducts/ViewedProducts';
+import { SiteContext } from '@/context/siteContext';
 import { productsCategory } from '@/data/productsCategory';
 import { GetDataForHomeByCollection } from '@/fetch/clientFetch';
-// import { CldImage } from 'next-cloudinary';
 import Image from 'next/image';
 import Link from 'next/link';
-// import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useContext, useEffect, useState } from 'react';
 import ProductCategory from '../productCategory/ProductCategory';
 import styles from './Products.module.scss';
 
 const Products = () => {
   const { data, isLoading } = GetDataForHomeByCollection('products');
 
-  const [filteredData, setFilteredData] = useState(null);
+  const { filteredData, setFilteredData, handleReset } =
+    useContext(SiteContext);
+
+  const [viewedProducts, setViewedProducts] = useState([]);
+
+  const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const categoryFromURL = searchParams.get('category');
+
+  useEffect(() => {
+    if (!data) return;
+
+    if (categoryFromURL) {
+      // Якщо є категорія в URL, фільтруємо продукти
+      const filtered = data?.filter(
+        (item) => item.categoryRus === categoryFromURL
+      );
+      setFilteredData(filtered);
+    }
+  }, [categoryFromURL, data]);
 
   const arr = data?.map((item) => {
     const categoryData = productsCategory.find(
@@ -34,8 +53,6 @@ const Products = () => {
     .filter((category, index, self) => self.indexOf(category) === index)
     .map((category) => arr.find((a) => a.category === category));
 
-  const router = useRouter();
-
   const handlerCategory = (category) => {
     const filteredData = data?.filter((item) => item.categoryRus === category);
     setFilteredData(filteredData);
@@ -45,17 +62,10 @@ const Products = () => {
     });
   };
 
-  const handleReset = () => {
-    setFilteredData(null);
-    router.replace('/products', undefined, { shallow: true });
-  };
-
-  const [viewedProducts, setViewedProducts] = useState([]);
-
   useEffect(() => {
     const products = JSON.parse(localStorage.getItem('viewedProducts')) || [];
     setViewedProducts(products);
-  }, []);
+  }, [filteredData]);
 
   return (
     <>
