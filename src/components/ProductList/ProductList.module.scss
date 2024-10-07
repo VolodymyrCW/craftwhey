@@ -1,0 +1,163 @@
+@import '../../app/variables';
+
+.section {
+  @include pageTopPadding;
+}
+
+.categoryList {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 12px;
+  padding-bottom: 16px;
+  animation: fadeUp 0.8s ease-in-out forwards;
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    -webkit-box-pack: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+    row-gap: 16px;
+    -webkit-column-gap: 16px;
+    -moz-column-gap: 16px;
+    column-gap: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    -webkit-column-gap: 24px;
+    -moz-column-gap: 24px;
+    column-gap: 24px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 24px;
+  }
+}
+
+.categoryCard {
+  height: 348px;
+  background-color: $gray0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  cursor: pointer;
+  @media screen and (min-width: $tablet) {
+    height: 408px;
+    padding-bottom: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 498px;
+    padding-bottom: 4px;
+  }
+}
+
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 312px;
+
+  & img {
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: $tablet) {
+    height: 356px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 433px;
+  }
+}
+
+.title {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.4;
+
+  color: $blackColor;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 32px;
+  }
+}
+
+.arrowSvg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: $blackColor;
+  stroke-width: 1px;
+  margin-left: 4px;
+  @media screen and (min-width: $desktop) {
+    margin-left: 8px;
+  }
+}
+
+.breadCrumbs {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $secondary50;
+  margin-bottom: 32px;
+
+  & li {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $tablet) {
+    column-gap: 4px;
+    font-size: 14px;
+  }
+}
+
+.textLinkAnimation {
+  text-decoration: none;
+  position: relative;
+  outline: none;
+  &:hover.textLinkAnimation::after,
+  &:focus.textLinkAnimation::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    -webkit-animation: textLink 0.8s ease forwards;
+    animation: textLink 0.8s ease forwards;
+    background-color: #ffffff;
+  }
+}
+
+@keyframes textLink {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
+  }
+}

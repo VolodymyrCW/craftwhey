@@ -4,12 +4,9 @@ import ToBuyBtn from '../buttons/ToBuyBtn/ToBuyBtn';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ item }) => {
-  // const ProductCard = ({ item, result }) => {
-
   return (
     <li>
       <Link className={styles.productsItem} href={`/products/${item.slug}`}>
-        {/* <Link className={styles.productsItem} href={`/products/${result}/${item.slug}`}> */}
         <figure
           className={
             !item.isAbsent
