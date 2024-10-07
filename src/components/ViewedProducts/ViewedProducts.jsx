@@ -2,9 +2,31 @@
 
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import styles from './ViewedProducts.module.scss';
 
 const ViewedProducts = ({ viewedProducts, filteredData }) => {
+  const [visibleProducts, setVisibleProducts] = useState(2);
+
+  useEffect(() => {
+    const updateVisibleProducts = () => {
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        setVisibleProducts(2);
+      } else if (width < 1320) {
+        setVisibleProducts(3);
+      } else {
+        setVisibleProducts(4);
+      }
+    };
+
+    window.addEventListener('resize', updateVisibleProducts);
+
+    updateVisibleProducts();
+
+    return () => window.removeEventListener('resize', updateVisibleProducts);
+  }, []);
   return (
     viewedProducts?.length > 0 &&
     !filteredData && (
@@ -17,7 +39,7 @@ const ViewedProducts = ({ viewedProducts, filteredData }) => {
             Нещодавно переглянуті:
           </h2>
           <ul className={styles.viewedProductsList}>
-            {viewedProducts?.map((item) => (
+            {viewedProducts.slice(0, visibleProducts)?.map((item) => (
               <li key={item.slug}>
                 <Link
                   href={`products/${item.slug}`}
