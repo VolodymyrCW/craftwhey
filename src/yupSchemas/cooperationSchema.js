@@ -18,6 +18,7 @@ export const cooperationSchema = yup.object({
         .email("Не валідний email"),
     socialPage: yup
         .string()
-        .required("Заповніть це поле"),
+        .required("Заповніть це поле")
+        .min(3, "Посилання має бути довшим"),
 
 });

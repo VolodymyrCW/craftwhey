@@ -21,11 +21,14 @@ const CooperationForm = () => {
 
     const form = useForm(initialValues);
     const { register, handleSubmit, formState, reset } = form;
-    const { errors, isSubmitSuccessful, isValid, isSubmitting, isSubmitted } =
-        formState;
-
-    // console.log("isValid:", isValid);
-    // console.log("isSubmitted:", isSubmitted);
+    const {
+        errors,
+        isSubmitSuccessful,
+        isValid,
+        isSubmitting,
+        isSubmitted,
+        dirtyFields,
+    } = formState;
 
     useEffect(() => {
         if (isSubmitSuccessful) {
@@ -36,6 +39,7 @@ const CooperationForm = () => {
     const onSubmit = (data) => {
         console.log("cooperationFormData:", data);
     };
+
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
@@ -48,49 +52,76 @@ const CooperationForm = () => {
             <div className={styles.wrapper}>
                 <div className={styles.innerBox}>
                     <div className={styles.inputWrap}>
-                        {/* <svg className={styles.iconMark}>
-                        <use href='/sprite.svg#snowflake'></use>
-                    </svg> */}
+                        {errors.name && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-error' />
+                            </svg>
+                        )}
+                        {!errors.name && dirtyFields.name && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-success' />
+                            </svg>
+                        )}
                         <p className={styles.error}>{errors.name?.message}</p>
-
                         <input
                             type='text'
                             {...register("name")}
                             placeholder='Ім’я'
                             maxLength='30'
                             autoComplete='off'
-                            className={
-                                errors.name
-                                    ? `${styles.input} ${styles.errorInput}`
-                                    : styles.input
-                            }
+                            className={(() => {
+                                if (errors.name) {
+                                    return `${styles.input} ${styles.errorInput}`;
+                                } else if (!errors.name && dirtyFields.name) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
                         />
                     </div>
                     <div className={styles.inputWrap}>
-                        {/* <svg className={styles.iconMark}>
-                        <use href='/sprite.svg#snowflake'></use>
-                    </svg> */}
+                        {errors.tel && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-error' />
+                            </svg>
+                        )}
+                        {!errors.tel && dirtyFields.tel && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-success' />
+                            </svg>
+                        )}
                         <p className={styles.error}>{errors.tel?.message}</p>
-
                         <input
                             type='text'
                             {...register("tel")}
                             placeholder='Телефон'
                             autoComplete='off'
-                            maxLength='15'
-                            className={
-                                errors.email
-                                    ? `${styles.input} ${styles.errorInput}`
-                                    : styles.input
-                            }
+                            maxLength='14'
+                            className={(() => {
+                                if (errors.tel) {
+                                    return `${styles.input} ${styles.errorInput}`;
+                                } else if (!errors.tel && dirtyFields.tel) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
                         />
                     </div>
                 </div>
                 <div className={styles.innerBox}>
                     <div className={styles.inputWrap}>
-                        {/* <svg className={styles.iconMark}>
-                        <use href='/sprite.svg#snowflake'></use>
-                    </svg> */}
+                        {errors.email && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-error' />
+                            </svg>
+                        )}
+                        {!errors.email && dirtyFields.email && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-success' />
+                            </svg>
+                        )}
                         <p className={styles.error}>{errors.email?.message}</p>
 
                         <input
@@ -98,17 +129,28 @@ const CooperationForm = () => {
                             {...register("email")}
                             placeholder='Email'
                             autoComplete='off'
-                            className={
-                                errors.name
-                                    ? `${styles.input} ${styles.errorInput}`
-                                    : styles.input
-                            }
+                            className={(() => {
+                                if (errors.email) {
+                                    return `${styles.input} ${styles.errorInput}`;
+                                } else if (!errors.email && dirtyFields.email) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
                         />
                     </div>
                     <div className={styles.inputWrap}>
-                        {/* <svg className={styles.iconMark}>
-                        <use href='/sprite.svg#snowflake'></use>
-                    </svg> */}
+                        {errors.socialPage && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-error' />
+                            </svg>
+                        )}
+                        {!errors.socialPage && dirtyFields.socialPage && (
+                            <svg className={styles.iconError}>
+                                <use href='/sprite.svg#icon-success' />
+                            </svg>
+                        )}
                         <p className={styles.error}>
                             {errors.socialPage?.message}
                         </p>
@@ -118,11 +160,18 @@ const CooperationForm = () => {
                             {...register("socialPage")}
                             placeholder='Сторінка в соцмережах'
                             autoComplete='off'
-                            className={
-                                errors.email
-                                    ? `${styles.input} ${styles.errorInput}`
-                                    : styles.input
-                            }
+                            className={(() => {
+                                if (errors.socialPage) {
+                                    return `${styles.input} ${styles.errorInput}`;
+                                } else if (
+                                    !errors.socialPage &&
+                                    dirtyFields.socialPage
+                                ) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
                         />
                     </div>
                 </div>
@@ -135,16 +184,6 @@ const CooperationForm = () => {
                         ? `${styles.submitButton} ${styles.activeBtn}`
                         : styles.submitButton
                 }
-
-                // className={(() => {
-                //     if (!isSubmitted) {
-                //         return `${styles.submitButton} ${styles.activeBtn}`;
-                //     } else if (isValid && isSubmitted) {
-                //         return `${styles.submitButton} ${styles.activeBtn}`;
-                //     } else {
-                //         return styles.submitButton;
-                //     }
-                // })()}
             >
                 Відправити
             </button>

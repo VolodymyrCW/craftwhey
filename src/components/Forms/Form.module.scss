@@ -86,13 +86,31 @@
 }
 
 .errorInput {
-    border: 1px solid red;
+    border: 1px solid $alertsError;
+}
+
+.inputSuccess {
+    border: 1px solid $alertsSuccess;
 }
 
 .input::placeholder {
     font-size: 16px;
     font-weight: 400;
     color: rgba(75, 75, 78, 0.5);
+}
+
+.iconError {
+    position: absolute;
+    bottom: 14px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    fill: $alertsError;
+
+    //   @media screen and (min-width: $desktop) {
+    //     left: -22px;
+    //     bottom: -22px;
+    //   }
 }
 
 // styles for submit button --------------------------
@@ -128,7 +146,7 @@
     position: absolute;
     bottom: 2px;
     right: 10px;
-    color: red;
+    color: $alertsError;
 
     // font-family: var(--montserrat);
     font-size: 12px;
