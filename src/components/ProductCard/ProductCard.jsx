@@ -31,6 +31,7 @@ const ProductCard = ({ item }) => {
           <ToBuyBtn
             item={item}
             activeBtnContainer={styles.activeBtnContainer}
+            card="card"
           />
         </div>
         <div className={styles.svgContainer}>

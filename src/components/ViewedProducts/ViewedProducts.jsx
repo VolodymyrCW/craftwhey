@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from './ViewedProducts.module.scss';
 
-const ViewedProducts = ({ viewedProducts, filteredData }) => {
+const ViewedProducts = ({ viewedProducts }) => {
   const [visibleProducts, setVisibleProducts] = useState(2);
 
   useEffect(() => {
@@ -27,9 +27,9 @@ const ViewedProducts = ({ viewedProducts, filteredData }) => {
 
     return () => window.removeEventListener('resize', updateVisibleProducts);
   }, []);
+
   return (
-    viewedProducts?.length > 0 &&
-    !filteredData && (
+    viewedProducts?.length > 0 && (
       <section className={` section ${styles.viewedProductsContainer}`}>
         <div className={`container ${styles.viewedProducts}`}>
           <h2 className={styles.viewedProductsTitle}>

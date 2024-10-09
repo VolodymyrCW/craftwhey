@@ -1,7 +1,7 @@
-$mobile: "360px";
-$tablet: "768px";
-$laptop: "1024px";
-$desktop: "1440px";
+$mobile: '360px';
+$tablet: '768px';
+$laptop: '1024px';
+$desktop: '1440px';
 
 // @media screen and (min-width: $mobile)
 // @media screen and (min-width: $tablet)
@@ -19,6 +19,8 @@ $gray200: rgba(227, 228, 231, 1);
 $gray100: rgba(238, 239, 242, 1);
 $gray50: rgba(246, 248, 251, 1);
 $gray0: rgba(255, 255, 255, 1);
+
+$background-900: #000e22;
 
 $primary900: rgba(255, 106, 0, 1);
 $primary800: rgba(255, 139, 0, 1);
