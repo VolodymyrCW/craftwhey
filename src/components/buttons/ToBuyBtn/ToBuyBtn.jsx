@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import styles from './ToBuyBtn.module.scss';
 
-const ToBuyBtn = ({ item, activeBtnContainer }) => {
+const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
+  const [cardBtn, setCardBtn] = useState(card);
+
+  const stylesCardBtn =
+    cardBtn === 'card' ? styles.btnCardContainer : styles.btnContainer;
+
   const container = !item.isAbsent
-    ? styles.btnContainer + ' ' + activeBtnContainer
+    ? stylesCardBtn + ' ' + activeBtnContainer
     : styles.btnContainer +
       ' ' +
       styles.btnContainerIsAbsent +
@@ -16,15 +22,33 @@ const ToBuyBtn = ({ item, activeBtnContainer }) => {
         e.preventDefault();
       }}
     >
-      <button className={styles.btn}>Купити</button>
-      <div className={styles.btnBlock}>
-        <svg>
-          <use href="sprite.svg#icon-schevron_left" />
-        </svg>
+      <button
+        className={
+          cardBtn === 'card'
+            ? styles.btn
+            : styles.btn + ' ' + styles.btnUniversal
+        }
+      >
+        Купити
+      </button>
+      <div
+        className={
+          cardBtn === 'card'
+            ? styles.btnBlock + ' ' + styles.btnBlockCard
+            : styles.btnBlock + ' ' + styles.btnBlockUniversal
+        }
+      >
+        <button className={styles.btnArrow}>
+          <svg>
+            <use href="sprite.svg#icon-schevron_left" />
+          </svg>
+        </button>
         <p>1</p>
-        <svg>
-          <use href="sprite.svg#icon-schevron_right" />
-        </svg>
+        <button className={styles.btnArrow}>
+          <svg>
+            <use href="sprite.svg#icon-schevron_right" />
+          </svg>
+        </button>
       </div>
     </div>
   );

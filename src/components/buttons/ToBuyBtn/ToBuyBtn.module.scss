@@ -3,6 +3,25 @@
 .btnContainer {
   position: relative;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+
+  @media screen and (min-width: $tablet) {
+    width: 234px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 259px;
+  }
+}
+
+.btnCardContainer {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   z-index: 10;
   @media screen and (min-width: $desktop) {
@@ -17,18 +36,23 @@
   }
   & .btnBlock {
     background-color: $gray600;
-    color: gray0;
+    color: $gray0;
   }
   & .btnBlock {
     & svg {
-      stroke: gray0;
+      stroke: $gray0;
     }
   }
 }
 
+.btnUniversal {
+  text-align: start;
+  padding: 10px 20px;
+}
+
 .btn {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 24px;
   background-color: $primary900;
   border-radius: 8px;
   border: none;
@@ -49,15 +73,49 @@
     font-size: 20px;
   }
 }
+.btnBlockUniversal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: $secondary50;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $gray900;
+  column-gap: 12px;
+  padding: 10px 24px;
+  & svg {
+    width: 14px;
+    height: 14px;
+    stroke: $blackColor;
+    fill: none;
+  }
+}
+.btnBlockCard {
+  display: none;
+}
 
 .btnBlock {
-  display: none;
   @media screen and (min-width: $tablet) {
     position: absolute;
     top: 0;
     right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     border-radius: 8px;
     background-color: $secondary50;
     font-weight: 300;
@@ -76,6 +134,12 @@
 
   @media screen and (min-width: $desktop) {
     font-size: 20px;
-    right: 30px;
   }
+}
+
+.btnArrow {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
