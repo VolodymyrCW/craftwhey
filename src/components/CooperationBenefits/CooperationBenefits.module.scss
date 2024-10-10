@@ -1,0 +1,59 @@
+@import "@/app/variables";
+
+.list {
+    display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    margin-bottom: 20px;
+    width: 280px;
+    @media screen and (min-width: $tablet) {
+        width: 728px;
+        row-gap: 20px;
+        column-gap: 104px;
+    }
+    @media screen and (min-width: $desktop) {
+        width: 648px;
+        column-gap: 24px;
+    }
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: $tablet) {
+        width: 312px;
+    }
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: darkorange;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    fill: transparent;
+    stroke: black;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+
+    width: 220px;
+    @media screen and (min-width: $tablet) {
+        width: 252px;
+    }
+    @media screen and (min-width: $desktop) {
+        font-size: 20px;
+    }
+}

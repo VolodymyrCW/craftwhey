@@ -1,5 +1,4 @@
 @import "@/app/variables";
-// @import '../../app/variables';
 
 .form {
     width: 280px;
@@ -20,7 +19,7 @@
     }
 
     @media screen and (min-width: $desktop) {
-        width: 723px;
+        width: 648px;
     }
 }
 
@@ -33,6 +32,10 @@
     @media screen and (min-width: $tablet) {
         font-size: 20px;
         font-weight: 500;
+    }
+    @media screen and (min-width: $desktop) {
+        margin-bottom: 32px;
+        font-weight: 300;
     }
 }
 
@@ -57,28 +60,42 @@
     @media screen and (min-width: $tablet) {
         width: 356px;
     }
+    @media screen and (min-width: $desktop) {
+        width: 312px;
+    }
 }
 
 .innerBox:not(:last-child) {
     margin-bottom: 12px;
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 0;
+    }
 }
 
 .inputWrap {
+    height: 50px;
     width: 100%;
     position: relative;
+    @media screen and (min-width: $desktop) {
+        height: 56px;
+    }
 }
 
 .inputWrap:not(:last-child) {
     margin-bottom: 12px;
+    @media screen and (min-width: $desktop) {
+        margin-bottom: 20px;
+    }
 }
 
 .input {
-    height: 50px;
     width: 100%;
+    height: 100%;
     border-radius: 8px;
     padding-left: 16px;
     border: none;
     outline: none;
+    background-color: $secondary50;
     box-shadow: 2px 2px 4px 0px rgba(75, 75, 78, 0.5);
     @media screen and (min-width: $tablet) {
         padding-left: 24px;
@@ -96,7 +113,11 @@
 .input::placeholder {
     font-size: 16px;
     font-weight: 400;
-    color: rgba(75, 75, 78, 0.5);
+    color: $gray800;
+    @media screen and (min-width: $desktop) {
+        font-size: 20px;
+        font-weight: 300;
+    }
 }
 
 .iconError {
@@ -131,7 +152,14 @@
 
     @media screen and (min-width: $tablet) {
         width: 480px;
-        margin-top: 10px;
+        margin-top: 20px;
+    }
+    @media screen and (min-width: $desktop) {
+        width: 259px;
+        height: 56px;
+        font-size: 20px;
+        font-weight: 300;
+        margin-top: 32px;
     }
 }
 

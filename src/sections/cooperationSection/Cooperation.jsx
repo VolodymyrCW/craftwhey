@@ -8,8 +8,10 @@ const Cooperation = () => {
         <section className={styles.section}>
             <div className={`container`}>
                 <h2 className={styles.title}>Раді співпраці з Вами</h2>
-                <CooperationBenefits />
-                <CooperationForm />
+                <div className={styles.wrap}>
+                    <CooperationBenefits />
+                    <CooperationForm />
+                </div>
             </div>
         </section>
     );
