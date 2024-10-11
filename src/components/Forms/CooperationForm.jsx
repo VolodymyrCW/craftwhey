@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { cooperationSchema } from "@/yupSchemas/cooperationSchema";
 
-import styles from "./Form.module.scss";
+import styles from "./CooperationForm.module.scss";
 
 const CooperationForm = () => {
     const initialValues = {
