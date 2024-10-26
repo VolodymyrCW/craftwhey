@@ -1,12 +1,16 @@
-@import "../../../app/variables";
+@import '../../../app/variables';
 
 .burgerMenu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background-color: $gray900;
-  position: absolute;
-  top: 56px;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: $background-900;
+    position: absolute;
+    top: 56px;
+    align-items: center;
+    display: none;
+  }
 
   transform: translate(-100vw);
   @media screen and (min-width: $desktop) {
@@ -23,11 +27,13 @@
 .navlinks {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
 
   font-size: 16px;
 
   @media screen and (min-width: $desktop) {
     flex-direction: row;
+    column-gap: 24px;
   }
 }

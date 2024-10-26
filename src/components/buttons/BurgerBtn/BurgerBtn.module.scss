@@ -1,0 +1,7 @@
+@import '../../../app/variables';
+
+.btn {
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}

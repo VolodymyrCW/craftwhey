@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { SiteContext } from "@/context/siteContext";
-import { useContext } from "react";
+import { SiteContext } from '@/context/siteContext';
+import { useContext } from 'react';
+import styles from './BurgerBtn.module.scss';
 
 const BurgerBtn = () => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
@@ -12,6 +13,7 @@ const BurgerBtn = () => {
       onClick={() => {
         setBurgermenu(!burgerMenu);
       }}
+      className={styles.btn}
     >
       menu
     </button>
