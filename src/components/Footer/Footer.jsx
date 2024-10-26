@@ -21,7 +21,7 @@ const Footer = () => {
                 <ul className={styles.navItemList}>
                   {subMenu &&
                     subMenu.map((item) => (
-                      <li>
+                      <li key={item.title}>
                         <Link href={item.href}>{item.title}</Link>
                       </li>
                     ))}
@@ -36,7 +36,7 @@ const Footer = () => {
                 <ul className={styles.navItemList}>
                   {subMenu &&
                     subMenu.map((item) => (
-                      <li>
+                      <li key={item.title}>
                         <Link href={item.href}>{item.title}</Link>
                       </li>
                     ))}
