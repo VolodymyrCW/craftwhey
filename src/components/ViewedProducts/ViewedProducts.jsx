@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from './ViewedProducts.module.scss';
 
-const ViewedProducts = ({ viewedProducts }) => {
+const ViewedProducts = ({ viewedProducts, title }) => {
   const [visibleProducts, setVisibleProducts] = useState(2);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const ViewedProducts = ({ viewedProducts }) => {
             {viewedProducts.slice(0, visibleProducts)?.map((item) => (
               <li key={item.slug}>
                 <Link
-                  href={`products/${item.slug}`}
+                  href={`${title ? title : ''}${item.slug}`}
                   className={styles.viewedProductsItem}
                 >
                   <figure className={styles.viewedProductsImg}>

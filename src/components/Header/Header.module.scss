@@ -2,23 +2,37 @@
 
 .header {
   position: fixed;
-  height: 72px; // for now
-  padding: 16px $sidePaddingMob;
+  // height: 72px; // for now
+  padding: 16px 12px;
+  // padding: 16px $sidePaddingMob;
   background-color: $background-900;
   z-index: 100;
   // outline: 1px dashed white;
   @media screen and (min-width: $tablet) {
-    height: 76px;
+    // height: 76px;
   }
 
   @media screen and (min-width: $desktop) {
-    height: 120px;
+    // height: 120px;
   }
 }
 
 .container {
-  outline: 1px dashed white;
   display: flex;
   flex-wrap: wrap;
+
   justify-content: space-between;
+}
+
+.navLinks {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    flex-direction: row;
+    column-gap: 24px;
+  }
 }

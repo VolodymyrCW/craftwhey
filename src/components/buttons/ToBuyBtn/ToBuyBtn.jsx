@@ -7,7 +7,7 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
   const stylesCardBtn =
     cardBtn === 'card' ? styles.btnCardContainer : styles.btnContainer;
 
-  const container = !item.isAbsent
+  const container = !item?.isAbsent
     ? stylesCardBtn + ' ' + activeBtnContainer
     : styles.btnContainer +
       ' ' +

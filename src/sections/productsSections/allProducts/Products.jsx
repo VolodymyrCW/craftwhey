@@ -29,7 +29,9 @@ const Products = () => {
         handleReset={handleReset}
         setFilteredData={setFilteredData}
       />
-      {!filteredData && <ViewedProducts viewedProducts={viewedProducts} />}
+      {!filteredData && (
+        <ViewedProducts viewedProducts={viewedProducts} title="products/" />
+      )}
     </Suspense>
   );
 };

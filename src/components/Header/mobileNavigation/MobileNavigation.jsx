@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import HeaderNavlinks from "@/components/HeaderNavlinks/HeaderNavlinks";
-import { SiteContext } from "@/context/siteContext";
-import { useContext } from "react";
+import HeaderNavlinks from '@/components/HeaderNavlinks/HeaderNavlinks';
+import { SiteContext } from '@/context/siteContext';
+import { useContext } from 'react';
 
-import styles from "./MobileNavigation.module.scss";
+import styles from './MobileNavigation.module.scss';
 
 const MobileNavigation = () => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
@@ -17,9 +17,6 @@ const MobileNavigation = () => {
           : `${styles.burgerMenu}`
       }
     >
-      <p className={styles.lang}>
-        <span>УКР</span> <span>РУС</span>
-      </p>
       <HeaderNavlinks className={`${styles.navlinks}`} />
     </div>
   );

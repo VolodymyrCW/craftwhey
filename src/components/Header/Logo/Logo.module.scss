@@ -1,0 +1,11 @@
+@import '../../../app/variables';
+
+.logo {
+  display: none;
+  @media screen and (min-width: $desktop) {
+    display: block;
+    width: 97px;
+    height: 48px;
+    fill: #ff6a00;
+  }
+}
