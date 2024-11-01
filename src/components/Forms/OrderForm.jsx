@@ -1,26 +1,38 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { orderSchema } from "@/yupSchemas/orderSchema";
+import {
+    getCityDepartmentsByCityName,
+    getCityDepartmentsByString,
+    getSettlementByString,
+} from "@/utils/novapostGetData";
 
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = () => {
+    const [cities, setCities] = useState([]);
+    const [departments, setDepartments] = useState([]);
+    const [currentCity, setCurrentCity] = useState("");
+
     const initialValues = {
         defaultValues: {
             name: "",
             tel: "",
             email: "",
             lastName: "",
+            city: "",
+            department: "",
         },
         resolver: yupResolver(orderSchema),
         mode: "onChange",
     };
 
     const form = useForm(initialValues);
-    const { register, handleSubmit, formState, reset } = form;
+    const { register, handleSubmit, formState, reset, setValue } = form;
+
     const {
         errors,
         isSubmitSuccessful,
@@ -33,8 +45,50 @@ const OrderForm = () => {
     useEffect(() => {
         if (isSubmitSuccessful) {
             reset();
+            setCurrentCity("");
+            setCities([]);
+            setDepartments([]);
         }
     }, [isSubmitSuccessful, reset]);
+
+    useEffect(() => {
+        if (!currentCity) return;
+        if (currentCity.length < 2) return;
+        async function fetchData() {
+            const currentDepartments = await getCityDepartmentsByCityName(
+                currentCity
+            );
+            setDepartments(currentDepartments);
+        }
+        fetchData();
+    }, [currentCity]);
+
+    const onCityNameChange = async (event) => {
+        setDepartments([]);
+        setValue("department", "");
+        setValue("city", event.target.value, {
+            shouldValidate: true,
+            shouldDirty: true,
+        });
+        setCurrentCity(event.target.value);
+
+        if (event.target.value.length < 2) return;
+        const response = await getSettlementByString(event.target.value);
+        setCities(response);
+    };
+
+    const onDepartsmentChange = async (event) => {
+        const response = await getCityDepartmentsByString(
+            currentCity,
+            event.target.value
+        );
+
+        setDepartments(response);
+        setValue("department", event.target.value, {
+            shouldValidate: true,
+            shouldDirty: true,
+        });
+    };
 
     const onSubmit = (data) => {
         console.log("orderFormData:", data);
@@ -66,15 +120,13 @@ const OrderForm = () => {
                         placeholder='Ім’я'
                         maxLength='30'
                         autoComplete='off'
-                        className={(() => {
-                            if (errors.name) {
-                                return `${styles.input} ${styles.errorInput}`;
-                            } else if (!errors.name && dirtyFields.name) {
-                                return `${styles.input} ${styles.inputSuccess}`;
-                            } else {
-                                return `${styles.input}`;
-                            }
-                        })()}
+                        className={`${styles.input} ${
+                            errors.name
+                                ? styles.errorInput
+                                : dirtyFields.name
+                                ? styles.inputSuccess
+                                : ""
+                        }`}
                     />
                 </div>
                 <div className={styles.inputWrap}>
@@ -95,18 +147,13 @@ const OrderForm = () => {
                         {...register("lastName")}
                         placeholder='Прізвище'
                         autoComplete='off'
-                        className={(() => {
-                            if (errors.lastName) {
-                                return `${styles.input} ${styles.errorInput}`;
-                            } else if (
-                                !errors.lastName &&
-                                dirtyFields.lastName
-                            ) {
-                                return `${styles.input} ${styles.inputSuccess}`;
-                            } else {
-                                return `${styles.input}`;
-                            }
-                        })()}
+                        className={`${styles.input} ${
+                            errors.lastName
+                                ? styles.errorInput
+                                : dirtyFields.lastName
+                                ? styles.inputSuccess
+                                : ""
+                        }`}
                     />
                 </div>
 
@@ -128,15 +175,13 @@ const OrderForm = () => {
                         {...register("email")}
                         placeholder='Email'
                         autoComplete='off'
-                        className={(() => {
-                            if (errors.email) {
-                                return `${styles.input} ${styles.errorInput}`;
-                            } else if (!errors.email && dirtyFields.email) {
-                                return `${styles.input} ${styles.inputSuccess}`;
-                            } else {
-                                return `${styles.input}`;
-                            }
-                        })()}
+                        className={`${styles.input} ${
+                            errors.email
+                                ? styles.errorInput
+                                : dirtyFields.email
+                                ? styles.inputSuccess
+                                : ""
+                        }`}
                     />
                 </div>
 
@@ -158,16 +203,96 @@ const OrderForm = () => {
                         placeholder='Телефон'
                         autoComplete='off'
                         maxLength='14'
-                        className={(() => {
-                            if (errors.tel) {
-                                return `${styles.input} ${styles.errorInput}`;
-                            } else if (!errors.tel && dirtyFields.tel) {
-                                return `${styles.input} ${styles.inputSuccess}`;
-                            } else {
-                                return `${styles.input}`;
-                            }
-                        })()}
+                        className={`${styles.input} ${
+                            errors.tel
+                                ? styles.errorInput
+                                : dirtyFields.tel
+                                ? styles.inputSuccess
+                                : ""
+                        }`}
                     />
+                </div>
+                <div className={styles.inputWrap}>
+                    {errors.city && (
+                        <svg className={styles.iconError}>
+                            <use href='/sprite.svg#icon-error' />
+                        </svg>
+                    )}
+                    {!errors.city && dirtyFields.city && (
+                        <svg className={styles.iconError}>
+                            <use href='/sprite.svg#icon-success' />
+                        </svg>
+                    )}
+                    <p className={styles.error}>{errors.city?.message}</p>
+                    <input
+                        list='city'
+                        type='text'
+                        {...register("city")}
+                        onChange={onCityNameChange}
+                        placeholder='Виберіть місто'
+                        autoComplete='off'
+                        className={`${styles.input} ${
+                            errors.city
+                                ? styles.errorInput
+                                : dirtyFields.city
+                                ? styles.inputSuccess
+                                : ""
+                        }`}
+                    />
+                    <datalist id='city'>
+                        {cities?.map((el) => {
+                            return (
+                                <option
+                                    key={el}
+                                    value={el}
+                                    className={styles.input}
+                                >
+                                    {el}
+                                </option>
+                            );
+                        })}
+                    </datalist>
+                </div>
+                <div className={styles.inputWrap}>
+                    {errors.department && (
+                        <svg className={styles.iconError}>
+                            <use href='/sprite.svg#icon-error' />
+                        </svg>
+                    )}
+                    {!errors.department && dirtyFields.department && (
+                        <svg className={styles.iconError}>
+                            <use href='/sprite.svg#icon-success' />
+                        </svg>
+                    )}
+                    <p className={styles.error}>{errors.department?.message}</p>
+                    <input
+                        list='department'
+                        type='text'
+                        {...register("department")}
+                        onChange={onDepartsmentChange}
+                        placeholder='Виберіть відділення'
+                        autoComplete='off'
+                        className={`${styles.input} ${
+                            errors.department
+                                ? styles.errorInput
+                                : dirtyFields.department
+                                ? styles.inputSuccess
+                                : ""
+                        }`}
+                    />
+                    <datalist id='department'>
+                        {departments?.map((el) => {
+                            return (
+                                <option
+                                    key={el}
+                                    value={el}
+                                    className={styles.input}
+                                >
+                                    {el}
+                                </option>
+                            );
+                        })}
+                    </datalist>
                 </div>
             </div>
             <button

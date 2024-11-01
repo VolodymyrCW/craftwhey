@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { cooperationSchema } from "@/yupSchemas/cooperationSchema";
@@ -38,6 +39,7 @@ const CooperationForm = () => {
 
     const onSubmit = (data) => {
         console.log("cooperationFormData:", data);
+        toast.success("Ваше повідомлення успішно відправлене!");
     };
 
     return (
