@@ -15,7 +15,9 @@ const BurgerBtn = () => {
       }}
       className={styles.btn}
     >
-      menu
+      <svg>
+        <use href="sprite.svg#icon-menu32" />
+      </svg>
     </button>
   );
 };

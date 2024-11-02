@@ -2,25 +2,25 @@
 
 .header {
   position: fixed;
-  // height: 72px; // for now
-  padding: 16px 12px;
-  // padding: 16px $sidePaddingMob;
+  padding: 12px 20px;
+  height: 56px;
   background-color: $background-900;
   z-index: 100;
-  // outline: 1px dashed white;
   @media screen and (min-width: $tablet) {
-    // height: 76px;
+    padding: 6px 20px;
+    height: 60px;
   }
 
   @media screen and (min-width: $desktop) {
-    // height: 120px;
+    padding: 12px 60px;
+    height: 80px;
   }
 }
 
 .container {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-
   justify-content: space-between;
 }
 
@@ -34,5 +34,38 @@
     font-size: 16px;
     flex-direction: row;
     column-gap: 24px;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 19px;
+  @media screen and (min-width: $tablet) {
+    column-gap: 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    column-gap: 56px;
+  }
+}
+
+.svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  @media screen and (min-width: $tablet) {
+    width: 32px;
+    height: 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.lang {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
   }
 }
