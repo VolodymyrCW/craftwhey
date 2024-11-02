@@ -1,19 +1,15 @@
 @import '../../../app/variables';
 
 .burgerMenu {
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: $background-900;
-    position: absolute;
-    top: 56px;
-    align-items: center;
-    display: none;
-  }
-
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 56px;
+  width: 157px;
+  background-color: $background-900;
   transform: translate(-100vw);
   @media screen and (min-width: $desktop) {
+    width: max-content;
     flex-direction: row;
     position: static;
     transform: translate(0);
@@ -21,19 +17,46 @@
 }
 
 .burgerMenuVisible {
-  transform: translate(0);
+  transform: translate(-7vw);
+  @media screen and (min-width: $tablet) {
+    transform: translate(-3vw);
+  }
+  @media screen and (min-width: $tablet) {
+    transform: translate(0);
+  }
 }
 
 .navlinks {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 8px;
-
+  padding: 20px;
   font-size: 16px;
+  background-color: $background-900;
 
   @media screen and (min-width: $desktop) {
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    font-size: 16px;
     column-gap: 24px;
+    padding: 0px;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 56px;
+  z-index: 5;
+}
+
+.svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  @media screen and (min-width: $tablet) {
+    width: 48px;
+    height: 48px;
   }
 }

@@ -1,9 +1,7 @@
 import BurgerBtn from '../buttons/BurgerBtn/BurgerBtn';
-import HeaderNavlinks from '../HeaderNavlinks/HeaderNavlinks';
-
-import styles from './Header.module.scss';
 import Logo from './Logo/Logo';
 import MobileNavigation from './mobileNavigation/MobileNavigation';
+import styles from './Header.module.scss';
 
 const Header = () => {
   return (
@@ -12,7 +10,17 @@ const Header = () => {
         <BurgerBtn />
         <Logo />
         <MobileNavigation />
-        <HeaderNavlinks className={styles.navLinks} />
+        <div className={styles.iconContainer}>
+          <svg className={styles.svg}>
+            <use href="sprite.svg/#icon-search_24" />
+          </svg>
+          <svg className={styles.svg}>
+            <use href="sprite.svg/#icon-cart_24" />
+          </svg>
+          <p className={styles.lang}>
+            <span>Укр</span> <span>Eng</span>
+          </p>
+        </div>
       </div>
     </header>
   );
