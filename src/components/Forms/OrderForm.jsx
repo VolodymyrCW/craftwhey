@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { orderSchema } from "@/yupSchemas/orderSchema";
@@ -25,6 +26,7 @@ const OrderForm = () => {
             lastName: "",
             city: "",
             department: "",
+            paymentMethod: "",
         },
         resolver: yupResolver(orderSchema),
         mode: "onChange",
@@ -212,6 +214,11 @@ const OrderForm = () => {
                         }`}
                     />
                 </div>
+                <div className={styles.svgBox}>
+                    <svg className={styles.iconPost}>
+                        <use href='sprite.svg#NovaPosht' />
+                    </svg>
+                </div>
                 <div className={styles.inputWrap}>
                     {errors.city && (
                         <svg className={styles.iconError}>
@@ -295,6 +302,33 @@ const OrderForm = () => {
                     </datalist>
                 </div>
             </div>
+
+            <div className={styles.radioWrap}>
+                <p className={styles.error}>{errors.paymentMethod?.message}</p>
+                <label className={styles.radioLabel}>
+                    <input
+                        type='radio'
+                        value='uponReceipt'
+                        {...register("paymentMethod")}
+                    />
+                    Оплата при отриманнні
+                </label>
+                <label>
+                    <input
+                        type='radio'
+                        value='card'
+                        {...register("paymentMethod")}
+                    />
+                    Оплата онлайн карткою
+                </label>
+            </div>
+
+            <Link
+                href='/products'
+                className={`${styles.submitButton} ${styles.redirectButton}`}
+            >
+                Продовжити покупки
+            </Link>
             <button
                 type='submit'
                 disabled={isSubmitting}
@@ -304,7 +338,7 @@ const OrderForm = () => {
                         : styles.submitButton
                 }
             >
-                Відправити
+                Оформити замовлення
             </button>
         </form>
     );
