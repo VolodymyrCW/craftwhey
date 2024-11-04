@@ -56,4 +56,7 @@ export const orderSchema = yup.object({
                 return true;
             },
         }),
+    paymentMethod: yup
+        .string()
+        .required("Виберіть спосіб оплати"),
 });

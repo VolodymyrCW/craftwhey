@@ -12,6 +12,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    margin: 0 auto 0 auto;
 
     // @media screen and (min-width: $tablet) {
     //     width: 728px;
@@ -48,27 +49,36 @@
     // }
 }
 
-.wrapper:not(:last-child) {
-    margin-bottom: 12px;
-    // @media screen and (min-width: $tablet) {
-    //     margin-bottom: 0;
-    // }
-}
-
 .inputWrap {
     height: 50px;
     width: 100%;
     position: relative;
+    margin-bottom: 12px;
     // @media screen and (min-width: $desktop) {
     //     height: 56px;
     // }
 }
 
-.inputWrap:not(:last-child) {
-    margin-bottom: 12px;
-    // @media screen and (min-width: $desktop) {
-    //     margin-bottom: 20px;
-    // }
+.inputWrap:last-child {
+    margin-bottom: 0;
+}
+
+.radioWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 12px;
+    height: 76px;
+    width: 100%;
+    margin: 16px 0 16px 0;
+}
+
+.radioLabel {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    color: $secondary50;
 }
 
 .input {
@@ -117,6 +127,23 @@
     //   }
 }
 
+.svgBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+    width: 167px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: $secondary50;
+    box-shadow: 2px 2px 4px 0px rgba(75, 75, 78, 0.5);
+}
+
+.iconPost {
+    width: 134px;
+    height: 48px;
+}
+
 // styles for submit button --------------------------
 
 .submitButton {
@@ -132,6 +159,7 @@
     background-color: $gray700;
     color: $gray400;
     cursor: pointer;
+    margin-bottom: 12px;
 
     // @media screen and (min-width: $tablet) {
     //     width: 480px;
@@ -149,6 +177,15 @@
 .activeBtn {
     background-color: $primary900;
     color: $gray900;
+}
+
+.redirectButton {
+    background-color: transparent;
+    color: $gray0;
+    border: 2px solid $primary900;
+    text-align: center;
+    line-height: 52px;
+    // text-justify:c
 }
 
 // styles for errors --------------------------
