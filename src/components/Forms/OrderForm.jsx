@@ -304,23 +304,33 @@ const OrderForm = () => {
             </div>
 
             <div className={styles.radioWrap}>
-                <p className={styles.error}>{errors.paymentMethod?.message}</p>
-                <label className={styles.radioLabel}>
+                <p className={`${styles.error} ${styles.errorRadio}`}>
+                    {errors.paymentMethod?.message}
+                </p>
+                <div className={styles.labelBox}>
                     <input
                         type='radio'
+                        id='uponReceipt'
                         value='uponReceipt'
+                        className={styles.radioInput}
                         {...register("paymentMethod")}
                     />
-                    Оплата при отриманнні
-                </label>
-                <label>
+                    <label htmlFor='uponReceipt' className={styles.radioLabel}>
+                        Оплата при отриманнні
+                    </label>
+                </div>
+                <div className={styles.labelBox}>
                     <input
                         type='radio'
+                        id='card'
                         value='card'
+                        className={styles.radioInput}
                         {...register("paymentMethod")}
                     />
-                    Оплата онлайн карткою
-                </label>
+                    <label htmlFor='card' className={styles.radioLabel}>
+                        Оплата онлайн карткою
+                    </label>
+                </div>
             </div>
 
             <Link

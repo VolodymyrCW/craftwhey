@@ -74,13 +74,6 @@
     margin: 16px 0 16px 0;
 }
 
-.radioLabel {
-    font-size: 16px;
-    line-height: 1.6;
-    font-weight: 300;
-    color: $secondary50;
-}
-
 .input {
     width: 100%;
     height: 100%;
@@ -113,6 +106,62 @@
     // }
 }
 
+//--------------------   styles for radio buttons   ----------------------
+
+.labelBox {
+    margin-left: -12px;
+}
+
+.radioInput {
+    opacity: 0;
+}
+
+.radioInput + .radioLabel {
+    position: relative;
+    padding-left: 45px;
+    cursor: pointer;
+    display: inline-block;
+
+    font-size: 16px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.radioInput + .radioLabel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    // border: 3px solid $secondary50;
+    background-color: $secondary50;
+}
+
+.radioInput:checked + .radioLabel::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: $gray900;
+}
+
+.radioInput:not(:checked) + .radioLabel::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+}
+
+//-----------------   styles for icons   --------------------------
+
 .iconError {
     position: absolute;
     bottom: 14px;
@@ -144,7 +193,7 @@
     height: 48px;
 }
 
-// styles for submit button --------------------------
+//------------------   styles for submit buttons   ------------------------
 
 .submitButton {
     width: 100%;
@@ -188,7 +237,7 @@
     // text-justify:c
 }
 
-// styles for errors --------------------------
+//--------------------   styles for errors   -----------------------
 
 .error {
     position: absolute;
@@ -199,4 +248,8 @@
     // font-family: var(--montserrat);
     font-size: 12px;
     font-weight: 300;
+}
+
+.errorRadio {
+    bottom: 28px;
 }
