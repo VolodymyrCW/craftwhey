@@ -148,6 +148,9 @@
     height: 24px;
     border-radius: 100%;
     background-color: $gray900;
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .radioInput:not(:checked) + .radioLabel::after {
@@ -158,6 +161,8 @@
     width: 24px;
     height: 24px;
     border-radius: 100%;
+    transform: scale(0);
+    opacity: 0;
 }
 
 //-----------------   styles for icons   --------------------------

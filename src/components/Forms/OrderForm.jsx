@@ -29,6 +29,7 @@ const OrderForm = () => {
             paymentMethod: "",
         },
         resolver: yupResolver(orderSchema),
+        context: { cities, departments },
         mode: "onChange",
     };
 
