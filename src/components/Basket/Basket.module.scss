@@ -1,0 +1,97 @@
+@import "../../app/variables";
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: -32px;
+    width: 264px;
+    background-color: $secondary50;
+    transform: translate(235px);
+    transition: "all 0.7s ease-in-out";
+}
+
+.activeMenu {
+    transform: translate(-32px);
+    transition: "all 0.7s ease-in-out";
+
+    // @media screen and (min-width: $tablet) {
+    //     transform: translate(-3vw);
+    // }
+    // @media screen and (min-width: $tablet) {
+    //     transform: translate(0);
+    // }
+}
+
+.btnBack {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: -36px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 36px;
+    height: 88px;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+}
+
+.cardTitle {
+    margin-top: 12px;
+    color: $blackColor;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.svg {
+    margin-top: 4px;
+    width: 32px;
+    height: 32px;
+    fill: transparent;
+    stroke: #000;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    stroke: #000;
+}
+
+.totalSum {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.6px;
+    color: $blackColor;
+}
+
+.cardFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orderBtn {
+    width: 248px;
+    height: 42px;
+    border-radius: 8px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 4px 0px rgba(75, 75, 78, 0.5);
+    background-color: $primary900;
+    color: $gray900;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

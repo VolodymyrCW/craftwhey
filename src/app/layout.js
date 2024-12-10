@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
       <body style={{ overflowX: 'hidden' }}>
         <SiteProvider>
           <Header />
+
           <main>{children}</main>
           <Footer />
         </SiteProvider>
@@ -37,7 +38,7 @@ export default function RootLayout({ children }) {
           // draggable
           pauseOnHover
           theme="colored"
-          // transition:Bounce
+        // transition:Bounce
         />
       </body>
     </html>
