@@ -7,8 +7,15 @@ import EmptyBasket from "./EmptyBasket";
 import styles from "./Basket.module.scss";
 
 const Basket = () => {
-    const { openBasket, setOpenBasket } = useContext(SiteContext);
+    const { openBasket, setOpenBasket, basketGoods } = useContext(SiteContext);
     const [totalSum, setTotalSum] = useState(0);
+    // const [currentBasket, setCurrentBasket] = useState(true);
+    // // console.log("openBasket: ", openBasket);
+    // useEffect(() => {
+    //     if (basketGoods.length > 0) {
+    //         setEmptyBasket(false);
+    //     }
+    // }, [emptyBasket, basketGoods.length]);
 
     function handleBacketClose() {
         setOpenBasket(false);
