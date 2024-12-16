@@ -33,7 +33,6 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
             className={container}
             onClick={(e) => {
                 e.preventDefault();
-                // console.log("item:", item);
             }}
         >
             <button

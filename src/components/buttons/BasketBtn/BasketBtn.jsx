@@ -7,13 +7,6 @@ import styles from "./BasketBtn.module.scss";
 
 const BasketBtn = () => {
     const { basketGoods, setOpenBasket } = useContext(SiteContext);
-    const [emptyBasket, setEmptyBasket] = useState(true);
-    // console.log("basketGoodsBasketBtn: ", basketGoods);
-    useEffect(() => {
-        if (basketGoods.length > 0) {
-            setEmptyBasket(false);
-        }
-    }, [emptyBasket, basketGoods.length]);
 
     return (
         <button
@@ -22,13 +15,13 @@ const BasketBtn = () => {
             }}
             className={styles.btn}
         >
-            {emptyBasket ? (
+            {basketGoods.length ? (
                 <svg className={styles.svg}>
-                    <use href='sprite.svg/#icon-cart_24' />
+                    <use href='sprite.svg/#cart_white_full' />
                 </svg>
             ) : (
                 <svg className={styles.svg}>
-                    <use href='sprite.svg/#cart_white_full' />
+                    <use href='sprite.svg/#icon-cart_24' />
                 </svg>
             )}
         </button>
