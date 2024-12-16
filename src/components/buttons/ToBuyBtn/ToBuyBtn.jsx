@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SiteContext } from "@/context/siteContext";
+
 import styles from "./ToBuyBtn.module.scss";
 
 const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
     const [cardBtn, setCardBtn] = useState(card);
+    const { basketGoods, setBasketGoods } = useContext(SiteContext);
 
     const stylesCardBtn =
         cardBtn === "card" ? styles.btnCardContainer : styles.btnContainer;
@@ -15,12 +18,21 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
           " " +
           activeBtnContainer;
 
+    const handleButtonClick = () => {
+        const idArray = basketGoods.map((stuffId) => stuffId._id);
+
+        if (idArray.includes(item._id)) {
+            return;
+        }
+        setBasketGoods((prev) => [...prev, item]);
+    };
+    // console.log("basketGoods:", basketGoods);
+
     return (
         <div
             className={container}
             onClick={(e) => {
                 e.preventDefault();
-                console.log("item:", item);
             }}
         >
             <button
@@ -29,6 +41,7 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
                         ? styles.btn
                         : styles.btn + " " + styles.btnUniversal
                 }
+                onClick={handleButtonClick}
             >
                 Купити
             </button>

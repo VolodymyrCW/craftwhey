@@ -1,23 +1,29 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { SiteContext } from "@/context/siteContext";
 
 import styles from "./BasketBtn.module.scss";
 
 const BasketBtn = () => {
-    const { openBasket, setOpenBasket } = useContext(SiteContext);
-    // console.log("openBasket: ", openBasket);
+    const { basketGoods, setOpenBasket } = useContext(SiteContext);
+
     return (
         <button
             onClick={() => {
-                setOpenBasket(!openBasket);
+                setOpenBasket(true);
             }}
             className={styles.btn}
         >
-            <svg className={styles.svg}>
-                <use href='sprite.svg/#icon-cart_24' />
-            </svg>
+            {basketGoods.length ? (
+                <svg className={styles.svg}>
+                    <use href='sprite.svg/#cart_white_full' />
+                </svg>
+            ) : (
+                <svg className={styles.svg}>
+                    <use href='sprite.svg/#icon-cart_24' />
+                </svg>
+            )}
         </button>
     );
 };
