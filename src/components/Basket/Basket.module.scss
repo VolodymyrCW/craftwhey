@@ -124,6 +124,7 @@
     padding: 4px;
     border-bottom: 1px solid black;
     border-bottom-style: dashed;
+    background-color: $gray0;
 }
 
 .innerWrap {
@@ -157,9 +158,14 @@
     font-weight: 400;
     line-height: 1.6;
     color: $blackColor;
+    margin-bottom: 16px;
 }
 
 .priceItem {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-top: 4px;
     color: $blackColor;
 }
 
@@ -167,4 +173,29 @@
     height: 100%;
     border: none;
     cursor: pointer;
+    background-color: transparent;
+}
+
+//------------  styles for counter  -------------------
+
+.counterBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 104px;
+    height: 44px;
+    background-color: $primary600;
+    border-radius: 8px;
+}
+
+.btnCount {
+    background-color: transparent;
+    border: none;
+}
+
+.numberCount {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: $gray900;
 }

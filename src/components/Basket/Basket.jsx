@@ -1,8 +1,9 @@
 "use client";
 
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { CldImage } from "next-cloudinary";
 import { SiteContext } from "@/context/siteContext";
+import CounterBasket from "./CounterBasket";
 import EmptyBasket from "./EmptyBasket";
 
 import styles from "./Basket.module.scss";
@@ -10,22 +11,18 @@ import styles from "./Basket.module.scss";
 const Basket = () => {
     const { openBasket, setOpenBasket, basketGoods, setBasketGoods } =
         useContext(SiteContext);
-    const [totalSum, setTotalSum] = useState(0);
 
-    // useEffect(() => {
-    //     if (basketGoods.length > 0) {
-    //         console.log("useEffectWorks!");
-    //     }
-    // }, [basketGoods.length]);
-
-    // console.log("basketGoodsBasket:", basketGoods);
+    let totalSum = basketGoods?.reduce(
+        (acc, el) => acc + el.quantity * Number(el.price),
+        0
+    );
 
     function handleBasketClose() {
         setOpenBasket(false);
     }
 
     function handleDeleteItem(id) {
-        setBasketGoods(basketGoods.filter((item) => item._id !== id));
+        setBasketGoods(basketGoods.filter((item) => item.id !== id));
     }
 
     return (
@@ -58,7 +55,7 @@ const Basket = () => {
                     </div>
                     <ul className={styles.listBasket}>
                         {basketGoods?.map((item) => (
-                            <li key={item._id} className={styles.itemBasket}>
+                            <li key={item.id} className={styles.itemBasket}>
                                 <div className={styles.innerWrap}>
                                     <div className={styles.imageBasketBox}>
                                         <CldImage
@@ -76,10 +73,13 @@ const Basket = () => {
                                     <h4 className={styles.nameItem}>
                                         {item.name}
                                     </h4>
-                                    <div>Here will be counter quantity</div>
+                                    <CounterBasket
+                                        id={item.id}
+                                        quantity={item.quantity}
+                                    />
                                 </div>
                                 <button
-                                    onClick={() => handleDeleteItem(item._id)}
+                                    onClick={() => handleDeleteItem(item.id)}
                                     className={styles.btnDeleteItem}
                                 >
                                     <svg className={styles.icon}>

@@ -19,12 +19,22 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
           activeBtnContainer;
 
     const handleButtonClick = () => {
-        const idArray = basketGoods.map((stuffId) => stuffId._id);
+        const idArray = basketGoods.map((stuffId) => stuffId.id);
 
         if (idArray.includes(item._id)) {
             return;
         }
-        setBasketGoods((prev) => [...prev, item]);
+        setBasketGoods((prev) => [
+            ...prev,
+            {
+                id: item._id,
+                name: item.name,
+                image: item.image,
+                price: item.price,
+                worthWeight: item.worthWeight,
+                quantity: 1,
+            },
+        ]);
     };
     // console.log("basketGoods:", basketGoods);
 
