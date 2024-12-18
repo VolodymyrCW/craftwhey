@@ -1,6 +1,7 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import { SiteContext } from "@/context/siteContext";
 import CounterBasket from "./CounterBasket";
@@ -9,6 +10,7 @@ import EmptyBasket from "./EmptyBasket";
 import styles from "./Basket.module.scss";
 
 const Basket = () => {
+    const router = useRouter();
     const { openBasket, setOpenBasket, basketGoods, setBasketGoods } =
         useContext(SiteContext);
 
@@ -17,12 +19,23 @@ const Basket = () => {
         0
     );
 
+    useEffect(() => {
+        const localStorageBasket =
+            JSON.parse(localStorage.getItem("basketProducts")) || [];
+        setBasketGoods(localStorageBasket);
+    }, [setBasketGoods]);
+
     function handleBasketClose() {
         setOpenBasket(false);
     }
 
     function handleDeleteItem(id) {
         setBasketGoods(basketGoods.filter((item) => item.id !== id));
+    }
+
+    function handleOrderBasket() {
+        handleBasketClose();
+        router.push("/order");
     }
 
     return (
@@ -90,9 +103,12 @@ const Basket = () => {
                         ))}
                     </ul>
                     <div className={styles.cardFooter}>
-                        <p className={styles.totalSum}>{totalSum}</p>
+                        <p className={styles.totalSum}>{totalSum} грн</p>
 
-                        <button className={styles.orderBtn}>
+                        <button
+                            className={styles.orderBtn}
+                            onClick={handleOrderBasket}
+                        >
                             Оформити замовлення
                         </button>
                     </div>

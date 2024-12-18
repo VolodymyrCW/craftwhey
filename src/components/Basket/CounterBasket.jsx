@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SiteContext } from "@/context/siteContext";
 
 import styles from "./Basket.module.scss";
@@ -39,7 +39,7 @@ const CounterBasket = ({ id, quantity }) => {
                 className={styles.btnCount}
                 onClick={() => handleIncrement(id)}
             >
-                <svg className={`${styles.icon} ${styles.iconSchevron}`}>
+                <svg className={styles.icon}>
                     <use href='sprite.svg#icon-plus' />
                 </svg>
             </button>
@@ -48,7 +48,7 @@ const CounterBasket = ({ id, quantity }) => {
                 className={styles.btnCount}
                 onClick={() => handleDecrement(id)}
             >
-                <svg className={`${styles.icon} ${styles.iconSchevron}`}>
+                <svg className={styles.icon}>
                     <use href='sprite.svg#icon-minus' />
                 </svg>
             </button>
