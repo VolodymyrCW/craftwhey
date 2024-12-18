@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { toast } from "react-toastify";
 import { SiteContext } from "@/context/siteContext";
 
 import styles from "./ToBuyBtn.module.scss";
@@ -18,12 +19,18 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
           " " +
           activeBtnContainer;
 
+    useEffect(() => {
+        localStorage.setItem("basketProducts", JSON.stringify(basketGoods));
+    }, [basketGoods]);
+
     const handleButtonClick = () => {
         const idArray = basketGoods.map((stuffId) => stuffId.id);
 
         if (idArray.includes(item._id)) {
+            toast.info("Цей товар уже в корзині!");
             return;
         }
+
         setBasketGoods((prev) => [
             ...prev,
             {

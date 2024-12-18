@@ -66,13 +66,8 @@
     stroke: $blackColor;
 }
 
-// .iconCross {
-//     width: 24px;
-//     height: 24px;
-//     stroke: #000;
-// }
-
 .totalSum {
+    margin: 3px 0 12px;
     font-size: 16px;
     font-weight: 500;
     line-height: 25.6px;
@@ -191,6 +186,7 @@
 .btnCount {
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .numberCount {
