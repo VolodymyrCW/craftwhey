@@ -30,7 +30,9 @@ const Basket = () => {
     }
 
     function handleDeleteItem(id) {
-        setBasketGoods(basketGoods.filter((item) => item.id !== id));
+        const filteredGoods = basketGoods.filter((item) => item.id !== id);
+        setBasketGoods(filteredGoods);
+        localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
     }
 
     function handleOrderBasket() {

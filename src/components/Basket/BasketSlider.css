@@ -1,0 +1,39 @@
+.basketCards {
+    width: 284px;
+    height: 122px;
+    margin-bottom: 20px;
+}
+
+.basketCards .swiper-wrapper {
+    height: 110px;
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    border-bottom: 1px solid black;
+    border-bottom-style: dashed;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.basketCards .slideContentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.basketCards .swiper-pagination {
+    bottom: -4px;
+}
+
+.basketCards .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: rgba(173, 174, 177, 1);
+}
+
+.basketCards .swiper-pagination-bullet-active {
+    background: rgba(255, 175, 0, 1);
+}
