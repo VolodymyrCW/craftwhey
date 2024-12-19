@@ -38,7 +38,6 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
                 name: item.name,
                 image: item.image,
                 price: item.price,
-                worthWeight: item.worthWeight,
                 quantity: 1,
             },
         ]);
