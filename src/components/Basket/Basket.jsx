@@ -49,7 +49,7 @@ const Basket = () => {
             }
         >
             {basketGoods.length ? (
-                <div>
+                <div className={styles.basketWrap}>
                     {openBasket && (
                         <button
                             onClick={handleBasketClose}
