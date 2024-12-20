@@ -5,6 +5,7 @@ import { SiteContext } from "@/context/siteContext";
 import OrderForm from "@/components/Forms/OrderForm";
 import { useWindowResize } from "@/hooks/useWindowResize";
 import BasketSlider from "@/components/Basket/BasketSlider";
+import OrderList from "@/components/OrderList/OrderList";
 
 import styles from "./Order.module.scss";
 
@@ -13,14 +14,18 @@ const Order = () => {
     const { basketGoods } = useContext(SiteContext);
     return (
         <section className={styles.section}>
-            <div className={`container`}>
-                <h2 className={styles.title}>
-                    {basketGoods.length > 0
-                        ? "Ваше замовлення"
-                        : "Ваш кошик пустий"}
-                </h2>
+            <div className={`container ${styles.orderContainer}`}>
+                {isMobile && (
+                    <h2 className={styles.title}>
+                        {basketGoods.length > 0
+                            ? "Ваше замовлення"
+                            : "Ваш кошик пустий"}
+                    </h2>
+                )}
                 {isMobile && basketGoods.length > 0 && <BasketSlider />}
+
                 <OrderForm />
+                {!isMobile && <OrderList />}
             </div>
         </section>
     );

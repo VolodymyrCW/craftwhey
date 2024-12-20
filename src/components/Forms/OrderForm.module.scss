@@ -14,14 +14,15 @@
     flex-direction: column;
     margin: 0 auto 0 auto;
 
-    // @media screen and (min-width: $tablet) {
-    //     width: 728px;
-    //     row-gap: 0;
-    // }
+    @media screen and (min-width: $tablet) {
+        margin: 0;
+        width: 356px;
+        // row-gap: 0;
+    }
 
-    // @media screen and (min-width: $desktop) {
-    //     width: 648px;
-    // }
+    @media screen and (min-width: $desktop) {
+        width: 648px;
+    }
 }
 
 .formTitle {
@@ -30,10 +31,9 @@
     line-height: 1.4;
     text-align: center;
     margin-bottom: 16px;
-    // @media screen and (min-width: $tablet) {
-    //     font-size: 20px;
-    //     font-weight: 500;
-    // }
+    @media screen and (min-width: $tablet) {
+        font-size: 24px;
+    }
     // @media screen and (min-width: $desktop) {
     //     margin-bottom: 32px;
     //     font-weight: 300;

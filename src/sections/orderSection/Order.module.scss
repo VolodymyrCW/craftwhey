@@ -2,20 +2,30 @@
 
 .section {
     @include pageTopPadding;
+    width: 100%;
+}
+
+.orderContainer {
+    @media screen and (min-width: $tablet) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px 0 20px;
+    }
 }
 
 .title {
     font-size: 16px;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.6;
     text-align: center;
     margin-bottom: 16px;
     @media screen and (min-width: $tablet) {
-        font-size: 20px;
-        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 20px;
     }
     @media screen and (min-width: $desktop) {
-        margin-bottom: 32px;
-        font-weight: 300;
+        margin-bottom: 24px;
+        font-size: 20px;
     }
 }

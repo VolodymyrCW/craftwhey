@@ -10,18 +10,22 @@
     background-color: $secondary50;
     transform: translate(235px);
     transition: "all 0.7s ease-in-out";
+
+    @media screen and (min-width: $tablet) {
+        width: 268px;
+    }
 }
 
 .activeMenu {
     transform: translate(-32px);
     transition: "all 0.7s ease-in-out";
+}
 
-    // @media screen and (min-width: $tablet) {
-    //     transform: translate(-3vw);
-    // }
-    // @media screen and (min-width: $tablet) {
-    //     transform: translate(0);
-    // }
+.basketWrap {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    // overflow-y: scroll;
 }
 
 .btnBack {
@@ -64,6 +68,11 @@
     width: 32px;
     height: 32px;
     stroke: $blackColor;
+
+    @media screen and (min-width: $desktop) {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 .totalSum {
@@ -78,6 +87,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: auto;
 }
 
 .orderBtn {
@@ -111,17 +121,31 @@
 
 //------------  styles for basket list  -------------------
 
-// .listBasket{
-
-// }
+.listBasket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4px;
+    @media screen and (min-width: $tablet) {
+        row-gap: 12px;
+    }
+    @media screen and (min-width: $desktop) {
+        row-gap: 8px;
+    }
+}
 
 .itemBasket {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 260px;
     padding: 4px;
     border-bottom: 1px solid black;
     border-bottom-style: dashed;
     background-color: $gray0;
+    @media screen and (min-width: $tablet) {
+        width: 260px;
+    }
 }
 
 .innerWrap {

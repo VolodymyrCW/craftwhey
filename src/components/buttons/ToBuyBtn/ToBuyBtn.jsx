@@ -31,6 +31,8 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
             return;
         }
 
+        toast.success("Ви додали товар у корзину!");
+
         setBasketGoods((prev) => [
             ...prev,
             {
