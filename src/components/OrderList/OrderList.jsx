@@ -15,7 +15,7 @@ const OrderList = () => {
         0
     );
 
-    function handleDeleteItem(id) {
+    function deleteBasketItem(id) {
         const filteredGoods = basketGoods.filter((item) => item.id !== id);
         setBasketGoods(filteredGoods);
         localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
@@ -45,7 +45,7 @@ const OrderList = () => {
                             />
                         </div>
                         <button
-                            onClick={() => handleDeleteItem(item.id)}
+                            onClick={() => deleteBasketItem(item.id)}
                             className={styles.btnDeleteItem}
                         >
                             <svg className={styles.icon}>
