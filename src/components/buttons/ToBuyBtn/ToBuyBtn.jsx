@@ -27,11 +27,11 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
         const idArray = basketGoods.map((stuffId) => stuffId.id);
 
         if (idArray.includes(item._id)) {
-            toast.info("Цей товар уже в корзині!");
+            toast.info(`${item.name} уже в корзині!`);
             return;
         }
 
-        toast.success("Ви додали товар у корзину!");
+        toast.success(`Ви додали ${item.name} у корзину!`);
 
         setBasketGoods((prev) => [
             ...prev,

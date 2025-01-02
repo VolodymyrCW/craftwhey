@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { orderSchema } from "@/yupSchemas/orderSchema";
+import { SiteContext } from "@/context/siteContext";
 import {
     getCityDepartmentsByCityName,
     getCityDepartmentsByString,
@@ -14,6 +15,7 @@ import {
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = () => {
+    const { basketGoods, setBasketGoods } = useContext(SiteContext);
     const [cities, setCities] = useState([]);
     const [departments, setDepartments] = useState([]);
     const [currentCity, setCurrentCity] = useState("");
@@ -94,7 +96,10 @@ const OrderForm = () => {
     };
 
     const onSubmit = (data) => {
+        console.log("basketGoods:", basketGoods);
         console.log("orderFormData:", data);
+        setBasketGoods([]);
+        localStorage.setItem("basketProducts", JSON.stringify([]));
     };
 
     return (

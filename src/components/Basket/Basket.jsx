@@ -25,18 +25,14 @@ const Basket = () => {
         setBasketGoods(localStorageBasket);
     }, [setBasketGoods]);
 
-    function handleBasketClose() {
-        setOpenBasket(false);
-    }
-
-    function handleDeleteItem(id) {
+    function deleteBasketItem(id) {
         const filteredGoods = basketGoods.filter((item) => item.id !== id);
         setBasketGoods(filteredGoods);
         localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
     }
 
-    function handleOrderBasket() {
-        handleBasketClose();
+    function handlePlaceAnOrder() {
+        setOpenBasket(false);
         router.push("/order");
     }
 
@@ -52,7 +48,7 @@ const Basket = () => {
                 <div className={styles.basketWrap}>
                     {openBasket && (
                         <button
-                            onClick={handleBasketClose}
+                            onClick={() => setOpenBasket(false)}
                             className={styles.btnBack}
                         >
                             <svg
@@ -94,7 +90,7 @@ const Basket = () => {
                                     />
                                 </div>
                                 <button
-                                    onClick={() => handleDeleteItem(item.id)}
+                                    onClick={() => deleteBasketItem(item.id)}
                                     className={styles.btnDeleteItem}
                                 >
                                     <svg className={styles.icon}>
@@ -109,7 +105,7 @@ const Basket = () => {
 
                         <button
                             className={styles.orderBtn}
-                            onClick={handleOrderBasket}
+                            onClick={handlePlaceAnOrder}
                         >
                             Оформити замовлення
                         </button>
