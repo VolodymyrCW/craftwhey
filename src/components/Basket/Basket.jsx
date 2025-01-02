@@ -6,13 +6,16 @@ import { CldImage } from "next-cloudinary";
 import { SiteContext } from "@/context/siteContext";
 import CounterBasket from "./CounterBasket";
 import EmptyBasket from "./EmptyBasket";
+import { useBasket } from "@/store";
 
 import styles from "./Basket.module.scss";
 
 const Basket = () => {
     const router = useRouter();
-    const { openBasket, setOpenBasket, basketGoods, setBasketGoods } =
-        useContext(SiteContext);
+    const { basketGoods, setBasketGoods } = useContext(SiteContext);
+
+    const openBasket = useBasket((state) => state.openBasket);
+    const setOpenBasket = useBasket((state) => state.setOpenBasket);
 
     let totalSum = basketGoods?.reduce(
         (acc, el) => acc + el.quantity * Number(el.price),
@@ -32,7 +35,7 @@ const Basket = () => {
     }
 
     function handlePlaceAnOrder() {
-        setOpenBasket(false);
+        setOpenBasket();
         router.push("/order");
     }
 
@@ -48,7 +51,7 @@ const Basket = () => {
                 <div className={styles.basketWrap}>
                     {openBasket && (
                         <button
-                            onClick={() => setOpenBasket(false)}
+                            onClick={setOpenBasket}
                             className={styles.btnBack}
                         >
                             <svg

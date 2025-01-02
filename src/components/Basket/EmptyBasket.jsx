@@ -1,20 +1,17 @@
 "use client";
 
-import { useContext } from "react";
-import { SiteContext } from "@/context/siteContext";
+import { useBasket } from "@/store";
 
 import styles from "./Basket.module.scss";
 
 const EmptyBasket = () => {
-    const { openBasket, setOpenBasket } = useContext(SiteContext);
+    const openBasket = useBasket((state) => state.openBasket);
+    const setOpenBasket = useBasket((state) => state.setOpenBasket);
 
-    function handleBacketClose() {
-        setOpenBasket(false);
-    }
     return (
         <div className={styles.emptyBox}>
             {openBasket && (
-                <button onClick={handleBacketClose} className={styles.btnBack}>
+                <button onClick={setOpenBasket} className={styles.btnBack}>
                     <svg className={styles.icon}>
                         <use href='sprite.svg/#icon-schevron_right' />
                     </svg>
