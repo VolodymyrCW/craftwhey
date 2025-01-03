@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { orderSchema } from "@/yupSchemas/orderSchema";
-import { SiteContext } from "@/context/siteContext";
+import { useBasket } from "@/store";
 import {
     getCityDepartmentsByCityName,
     getCityDepartmentsByString,
@@ -15,10 +16,12 @@ import {
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = () => {
-    const { basketGoods, setBasketGoods } = useContext(SiteContext);
     const [cities, setCities] = useState([]);
     const [departments, setDepartments] = useState([]);
     const [currentCity, setCurrentCity] = useState("");
+
+    const basketGoods = useBasket((state) => state.basketGoods);
+    const resetBasket = useBasket((state) => state.resetBasket);
 
     const initialValues = {
         defaultValues: {
@@ -98,8 +101,8 @@ const OrderForm = () => {
     const onSubmit = (data) => {
         console.log("basketGoods:", basketGoods);
         console.log("orderFormData:", data);
-        setBasketGoods([]);
-        localStorage.setItem("basketProducts", JSON.stringify([]));
+        toast.success("Ваше замовлення надіслано!");
+        resetBasket();
     };
 
     return (

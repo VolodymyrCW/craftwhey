@@ -9,6 +9,8 @@ export const useBasket = create(persist((set, get) => ({
 
     basketGoods: [],
 
+    resetBasket: () => { set({ basketGoods: [] }) },
+
     addBasketItem: (id, name, image, price) => {
         set({ basketGoods: [...get().basketGoods, { id, name, image, price, quantity: 1 }] })
     },
