@@ -1,38 +1,30 @@
 "use client";
 
-import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { CldImage } from "next-cloudinary";
-import { SiteContext } from "@/context/siteContext";
 import CounterBasket from "./CounterBasket";
 import EmptyBasket from "./EmptyBasket";
+import { useBasket } from "@/store";
 
 import styles from "./Basket.module.scss";
 
 const Basket = () => {
     const router = useRouter();
-    const { openBasket, setOpenBasket, basketGoods, setBasketGoods } =
-        useContext(SiteContext);
+  
+    const openBasket = useBasket((state) => state.openBasket);
+    const setOpenBasket = useBasket((state) => state.setOpenBasket);
+    const basketGoods = useBasket((state) => state.basketGoods);
+    const deleteBasketItem = useBasket((state) => state.deleteBasketItem);
+
 
     let totalSum = basketGoods?.reduce(
         (acc, el) => acc + el.quantity * Number(el.price),
         0
     );
 
-    useEffect(() => {
-        const localStorageBasket =
-            JSON.parse(localStorage.getItem("basketProducts")) || [];
-        setBasketGoods(localStorageBasket);
-    }, [setBasketGoods]);
-
-    function deleteBasketItem(id) {
-        const filteredGoods = basketGoods.filter((item) => item.id !== id);
-        setBasketGoods(filteredGoods);
-        localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
-    }
 
     function handlePlaceAnOrder() {
-        setOpenBasket(false);
+        setOpenBasket();
         router.push("/order");
     }
 
@@ -48,7 +40,7 @@ const Basket = () => {
                 <div className={styles.basketWrap}>
                     {openBasket && (
                         <button
-                            onClick={() => setOpenBasket(false)}
+                            onClick={setOpenBasket}
                             className={styles.btnBack}
                         >
                             <svg

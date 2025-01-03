@@ -1,12 +1,15 @@
-import { useState, useContext, useEffect } from "react";
+"use client";
+
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { SiteContext } from "@/context/siteContext";
+import { useBasket } from "@/store";
 
 import styles from "./ToBuyBtn.module.scss";
 
 const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
     const [cardBtn, setCardBtn] = useState(card);
-    const { basketGoods, setBasketGoods } = useContext(SiteContext);
+    const basketGoods = useBasket((state) => state.basketGoods);
+    const addBasketItem = useBasket((state) => state.addBasketItem);
 
     const stylesCardBtn =
         cardBtn === "card" ? styles.btnCardContainer : styles.btnContainer;
@@ -19,10 +22,6 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
           " " +
           activeBtnContainer;
 
-    useEffect(() => {
-        localStorage.setItem("basketProducts", JSON.stringify(basketGoods));
-    }, [basketGoods]);
-
     const handleButtonClick = () => {
         const idArray = basketGoods.map((stuffId) => stuffId.id);
 
@@ -33,18 +32,8 @@ const ToBuyBtn = ({ item, activeBtnContainer, card }) => {
 
         toast.success(`Ви додали ${item.name} у корзину!`);
 
-        setBasketGoods((prev) => [
-            ...prev,
-            {
-                id: item._id,
-                name: item.name,
-                image: item.image,
-                price: item.price,
-                quantity: 1,
-            },
-        ]);
+        addBasketItem(item._id, item.name, item.image, item.price);
     };
-    // console.log("basketGoods:", basketGoods);
 
     return (
         <div

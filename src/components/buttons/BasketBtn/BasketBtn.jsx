@@ -1,20 +1,15 @@
 "use client";
 
-import { useContext, useState, useEffect } from "react";
-import { SiteContext } from "@/context/siteContext";
+import { useBasket } from "@/store";
 
 import styles from "./BasketBtn.module.scss";
 
 const BasketBtn = () => {
-    const { basketGoods, setOpenBasket } = useContext(SiteContext);
+    const setOpenBasket = useBasket((state) => state.setOpenBasket);
+    const basketGoods = useBasket((state) => state.basketGoods);
 
     return (
-        <button
-            onClick={() => {
-                setOpenBasket(true);
-            }}
-            className={styles.btn}
-        >
+        <button onClick={setOpenBasket} className={styles.btn}>
             {basketGoods.length ? (
                 <svg className={styles.svg}>
                     <use href='sprite.svg/#cart_white_full' />
