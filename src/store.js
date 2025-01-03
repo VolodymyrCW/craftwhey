@@ -2,16 +2,13 @@ import { create } from "zustand";
 import { persist, devtools } from 'zustand/middleware'
 
 export const useBasket = create(persist((set, get) => ({
-    basketGoods: [],
+
     openBasket: false,
-    // setOpenBasket: () => {
-    //     set({ openBasket: !get().openBasket })
-    // }
+
     setOpenBasket: () => set((state) => ({ openBasket: !state.openBasket })),
-    // totalSumBasketGoods: get()?.basketGoods.reduce(
-    //     (acc, el) => acc + el.quantity * Number(el.price),
-    //     0
-    // ),
+
+    basketGoods: [],
+
     addBasketItem: (id, name, image, price) => {
         set({ basketGoods: [...get().basketGoods, { id, name, image, price, quantity: 1 }] })
     },

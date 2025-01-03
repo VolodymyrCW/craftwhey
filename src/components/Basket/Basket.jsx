@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { CldImage } from "next-cloudinary";
-// import shallow from "zustand/shallow";
 import CounterBasket from "./CounterBasket";
 import EmptyBasket from "./EmptyBasket";
 import { useBasket } from "@/store";
@@ -11,34 +10,18 @@ import styles from "./Basket.module.scss";
 
 const Basket = () => {
     const router = useRouter();
-    // const { basketGoods, setBasketGoods } = useContext(SiteContext);
-
+  
     const openBasket = useBasket((state) => state.openBasket);
     const setOpenBasket = useBasket((state) => state.setOpenBasket);
     const basketGoods = useBasket((state) => state.basketGoods);
     const deleteBasketItem = useBasket((state) => state.deleteBasketItem);
-    // const totalSumBasketGoods = useBasket((state) => state.totalSumBasketGoods);
 
-    // console.log("basketGoodsBasket:", basketGoods);
 
     let totalSum = basketGoods?.reduce(
         (acc, el) => acc + el.quantity * Number(el.price),
         0
     );
 
-    // console.log("render basket");
-
-    // useEffect(() => {
-    //     const localStorageBasket =
-    //         JSON.parse(localStorage.getItem("basketProducts")) || [];
-    //     addGoods(localStorageBasket);
-    // }, [addGoods]);
-
-    // function deleteBasketItem(id) {
-    //     const filteredGoods = basketGoods.filter((item) => item.id !== id);
-    //     addGoods(filteredGoods);
-    //     localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
-    // }
 
     function handlePlaceAnOrder() {
         setOpenBasket();

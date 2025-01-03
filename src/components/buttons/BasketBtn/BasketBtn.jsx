@@ -1,13 +1,10 @@
 "use client";
 
-// import { useContext } from "react";
-// import { SiteContext } from "@/context/siteContext";
 import { useBasket } from "@/store";
 
 import styles from "./BasketBtn.module.scss";
 
 const BasketBtn = () => {
-    // const { basketGoods } = useContext(SiteContext);
     const setOpenBasket = useBasket((state) => state.setOpenBasket);
     const basketGoods = useBasket((state) => state.basketGoods);
 
