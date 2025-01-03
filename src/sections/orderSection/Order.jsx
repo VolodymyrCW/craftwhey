@@ -1,7 +1,6 @@
 "use client";
 
-import { useContext } from "react";
-import { SiteContext } from "@/context/siteContext";
+import { useBasket } from "@/store";
 import OrderForm from "@/components/Forms/OrderForm";
 import { useWindowResize } from "@/hooks/useWindowResize";
 import BasketSlider from "@/components/Basket/BasketSlider";
@@ -11,7 +10,8 @@ import styles from "./Order.module.scss";
 
 const Order = () => {
     const { isMobile } = useWindowResize();
-    const { basketGoods } = useContext(SiteContext);
+    const basketGoods = useBasket((state) => state.basketGoods);
+
     return (
         <section className={styles.section}>
             <div className={`container ${styles.orderContainer}`}>
