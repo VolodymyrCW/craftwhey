@@ -3,7 +3,6 @@
 import { useBasket } from "@/store";
 import { CldImage } from "next-cloudinary";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { SiteContext } from "@/context/siteContext";
 import CounterBasket from "./CounterBasket";
 
 // import required modules
@@ -19,18 +18,6 @@ import styles from "./Basket.module.scss";
 const BasketSlider = () => {
     const basketGoods = useBasket((state) => state.basketGoods);
     const deleteBasketItem = useBasket((state) => state.deleteBasketItem);
-
-    // useEffect(() => {
-    //     const localStorageBasket =
-    //         JSON.parse(localStorage.getItem("basketProducts")) || [];
-    //     setBasketGoods(localStorageBasket);
-    // }, [setBasketGoods]);
-
-    // function handleDeleteItem(id) {
-    //     const filteredGoods = basketGoods.filter((item) => item.id !== id);
-    //     setBasketGoods(filteredGoods);
-    //     localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
-    // }
 
     return (
         <Swiper

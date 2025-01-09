@@ -10,18 +10,16 @@ import styles from "./Basket.module.scss";
 
 const Basket = () => {
     const router = useRouter();
-  
+
     const openBasket = useBasket((state) => state.openBasket);
     const setOpenBasket = useBasket((state) => state.setOpenBasket);
     const basketGoods = useBasket((state) => state.basketGoods);
     const deleteBasketItem = useBasket((state) => state.deleteBasketItem);
 
-
-    let totalSum = basketGoods?.reduce(
+    const totalSum = basketGoods?.reduce(
         (acc, el) => acc + el.quantity * Number(el.price),
         0
     );
-
 
     function handlePlaceAnOrder() {
         setOpenBasket();

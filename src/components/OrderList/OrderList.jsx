@@ -7,23 +7,14 @@ import CounterBasket from "@/components/Basket/CounterBasket";
 import styles from "./OrderList.module.scss";
 
 const OrderList = () => {
-    // const { basketGoods, setBasketGoods } = useContext(SiteContext);
     const basketGoods = useBasket((state) => state.basketGoods);
     const deleteBasketItem = useBasket((state) => state.deleteBasketItem);
-    // const totalSumBasketGoods = useBasket((state) => state.totalSumBasketGoods);
 
-    // console.log("totalSumBasketGoods", totalSumBasketGoods);
-
-    let totalSum = basketGoods?.reduce(
+    const totalSum = basketGoods?.reduce(
         (acc, el) => acc + el.quantity * Number(el.price),
         0
     );
 
-    // function deleteBasketItem(id) {
-    //     const filteredGoods = basketGoods.filter((item) => item.id !== id);
-    //     setBasketGoods(filteredGoods);
-    //     localStorage.setItem("basketProducts", JSON.stringify(filteredGoods));
-    // }
     return (
         <div>
             <h3 className={styles.cardTitle}>Ваше замовлення</h3>
