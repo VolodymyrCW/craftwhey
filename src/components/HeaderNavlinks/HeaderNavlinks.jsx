@@ -1,11 +1,10 @@
 'use client';
 
-import { SiteContext } from '@/context/siteContext';
-import { navLinks } from '@/data/navLinks';
-import { GetDataForHomeByCollection } from '@/fetch/clientFetch';
-import Link from 'next/link';
-
 import { useContext, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { SiteContext } from '@/context/siteContext';
+import { GetDataForHomeByCollection } from '@/fetch/clientFetch';
+import { navLinks } from '@/data/navLinks';
 
 import styles from './HeaderNavlinks.module.scss';
 
@@ -17,8 +16,6 @@ const HeaderNavlinks = ({ className }) => {
   const [closingSubMenu, setClosingSubMenu] = useState(null);
 
   const { data, isLoading } = GetDataForHomeByCollection('products');
-
-  console.log(data);
 
   const menuRef = useRef(null);
 
@@ -44,6 +41,7 @@ const HeaderNavlinks = ({ className }) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -94,7 +92,7 @@ const HeaderNavlinks = ({ className }) => {
                 key={el.title}
               >
                 {el.subMenu.map((item) => (
-                  <li>
+                  <li key={item.title}>
                     <Link onClick={() => setBurgermenu(false)} href={el.href}>
                       {item.title}
                     </Link>
