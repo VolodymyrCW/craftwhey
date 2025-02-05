@@ -13,11 +13,28 @@
 }
 
 .linkContainer {
+  position: relative;
   display: flex;
   align-items: center;
   row-gap: 8px;
   @media screen and (min-width: $desktop) {
     column-gap: 18px;
+  }
+  &:hover .subMenu {
+    opacity: 1;
+    transform: translateY(0vw);
+    pointer-events: auto;
+    // animation: slideDown 0.3s ease-in-out;
+  }
+
+  &:hover .arrowBtn {
+    transform: rotate(275deg);
+    @media screen and (min-width: $desktop) {
+      transform: rotate(180deg);
+    }
+  }
+  &:hover .navLink {
+    color: $primary900;
   }
 }
 
@@ -26,7 +43,7 @@
   font-weight: 300;
   font-size: 16px;
   line-height: 1.6;
-  color: #fff;
+  color: $gray0;
 
   @media screen and (min-width: $desktop) {
     font-size: 20px;
@@ -44,23 +61,112 @@
     width: 100%;
     height: 100%;
     fill: none;
-    stroke: #fff;
+    stroke: $gray0;
   }
 }
+
+.subMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -20px;
+  left: 115%;
+  width: 120%;
+  gap: 8px;
+  padding: 20px 20px 20px 20px;
+  background-color: $background-900;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+  transform: translate(-100vw);
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  @media screen and (min-width: $desktop) {
+    top: 100%;
+    left: -20px;
+    width: 150%;
+    padding: 44px 20px 20px 20px;
+    font-size: 20px;
+    transform: translateY(-10px);
+  }
+  &.open {
+    opacity: 1;
+    transform: translateY(0vw);
+    pointer-events: auto;
+    z-index: -1;
+    @media screen and (min-width: $desktop) {
+      transform: translateY(0vw);
+    }
+    // animation: slideDown 0.3s ease-in-out;
+  }
+
+  &.closing {
+    // animation: slideUp 0.3s ease-in-out forwards;
+
+    transform: translateY(-100vw);
+    @media screen and (min-width: $desktop) {
+      transform: translateY(-100vw);
+    }
+  }
+  li {
+    list-style: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    &:hover,
+    &:focus {
+      color: $primary900;
+    }
+  }
+}
+
+// @keyframes slideDown {
+//   from {
+//     transform: translateY(-10px);
+//     opacity: 0;
+//   }
+//   to {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes slideUp {
+//   from {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+//   to {
+//     transform: translateY(-10px);
+//     opacity: 0;
+//   }
+// }
 
 .cooperation {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.6;
-  color: #fff;
+  color: $gray0;
 
+  &:hover,
+  &:focus {
+    color: $primary900;
+  }
   @media screen and (min-width: $desktop) {
-    border: 2px solid #ffaf00;
+    border: 2px solid $primary600;
     border-radius: 8px;
     padding: 12px 48px;
     width: 200px;
     height: 56px;
     font-size: 20px;
+    &:hover,
+    &:focus {
+      background-color: $primary900;
+      border: 2px solid $primary900;
+      color: $gray0;
+    }
   }
 }
