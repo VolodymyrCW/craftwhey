@@ -5,7 +5,6 @@
   flex-direction: column;
   position: absolute;
   top: 56px;
-  width: 157px;
   background-color: $background-900;
   transform: translate(-100vw);
   @media screen and (min-width: $desktop) {
@@ -21,7 +20,7 @@
   @media screen and (min-width: $tablet) {
     transform: translate(-3vw);
   }
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $desktop) {
     transform: translate(0);
   }
 }
@@ -30,7 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 20px;
+  padding: 20px 20px 60px 40px;
   font-size: 16px;
   background-color: $background-900;
 
